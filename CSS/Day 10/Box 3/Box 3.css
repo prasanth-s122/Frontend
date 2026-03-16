@@ -1,0 +1,27 @@
+.Container{
+    background-color: bisque;
+    
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+    
+    
+
+}
+
+body{
+    background-color: black;
+}
+
+.Box{
+    color: crimson;
+    background-color: aliceblue;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

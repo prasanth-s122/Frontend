@@ -1,0 +1,59 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.container{
+    background-color: bisque;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.grid{
+    
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 100px;
+}
+
+
+
+
+.grid img{
+    height: 300px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 1px;
+    box-shadow: 1px 5px 2px 2px gray;
+}
+
+.img::after{
+    position:absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+}
+
+img{
+    transition: 2s;
+}
+
+img:hover{
+    transform: scale(1.5);
+    box-shadow: 1px 5px 2px 2px green;
+
+}
+.One{
+    transition: 2s;
+}
+
+.One::after{
+    content: "Name";
+    background-color: whitesmoke;
+    color: black;
+    padding: 10px;
+}
+

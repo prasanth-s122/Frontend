@@ -1,0 +1,20 @@
+
+body{
+    background-color: azure;
+}
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+p::first-letter{
+    color: red;
+    font-size: 50px;
+}
+
+h1::after{
+    content: "Welcome🔥";
+    padding: 10px;
+    text-shadow: 10px 10px 5px crimson;
+    color: red;
+}

@@ -1,0 +1,35 @@
+/* Body section */
+body{
+    background-color: blanchedalmond;
+    padding: 20px;
+    margin: 5px;   
+}
+
+body div{
+    border: 20px;
+    margin: 20px;
+}
+
+/* Main section */
+main{
+    background-color: azure;
+    padding: 10px;
+}
+
+/* All h1 */
+h1{
+    color: #5E00A0;
+}
+
+/* All h2 */
+h2{
+    color: red;
+}
+
+/* All h3 */
+h3{
+    color: blue;
+}
+
+
+
