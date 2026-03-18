@@ -1,0 +1,84 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: whitesmoke;
+}
+
+.formcontainer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login{
+    width: 400px;
+    height: 550px;
+    background-color: white;
+    border: 5px solid whitesmoke;
+    border-radius: 10px;
+    display: flex;
+
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+.logo img{
+    width: 300px;
+    
+}
+
+.logo{
+    
+    display: flex;
+    justify-content: center;
+}
+
+
+h1{
+    font-size: 35px;
+}    
+
+
+.mailip{
+    height: 45px; 
+    width: 394px;
+    font-size: large;
+    transition: 2s;
+    
+    border-radius: 5px;
+}
+
+.mailip:focus-within{
+    background-color: lightblue;
+}
+
+.next{
+    padding: 10px;
+    display: flex;
+    width: 300px;
+    position: relative;
+}
+
+.sub{
+    width: 80px;
+    height: 30px;
+    font-size: large;
+    position: absolute;
+    right: -90px;
+    bottom: -80px;
+    background-color: blue;
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 2s;
+}
+
+.sub:hover{
+    background-color: green;
+    
+}

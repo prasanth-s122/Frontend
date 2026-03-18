@@ -1,0 +1,115 @@
+body{
+    
+    border: 5px solid gray;
+    border-radius: 10px;
+}
+
+.ncontainer{
+    background-color: aliceblue;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.logo img{
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+}
+
+
+.navbar{
+    display: flex;
+    gap: 100px;
+}
+
+.navbar a{
+    padding: 10px;
+    background-color: white;
+    text-decoration: none;
+    transition: 2s;
+    border-radius: 10px;
+    
+
+}
+
+.navbar a:hover{
+    background-color: blue;
+}
+
+.heading{
+    font-size: 30px;
+    text-align: center;
+}
+
+.banner{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.banner img{
+    width: 800px;
+    border-radius: 50px;
+
+}
+
+
+.cardcontainer{
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    
+
+}
+.imagecard{
+    width: 200px;
+    height: 350px;
+    padding: 10px;
+    border: 5px solid gray;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: 2s;
+    font-style: oblique;
+    font-weight: 200;
+
+}
+
+.imagecard:hover{
+    transform: translateY(-90px);
+    box-shadow: 2px 2px 2px 2px gray;
+}
+
+
+
+.imagecard a{
+    padding: 6px;
+    width: 100px;
+    background-color: blue;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    transition: 2s;
+    
+}
+
+.imagecard img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    
+}
+
+.imagecard a:hover{
+    background-color: green;
+}
