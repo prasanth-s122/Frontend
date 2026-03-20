@@ -1,0 +1,228 @@
+<html>
+    <head>
+        <title>Feedback Form</title>
+        <link rel="shortcut icon" href="Assets/fav.jpg" type="image/x-icon">
+    </head>
+
+    <body><center>
+        <header><center><h1>WAKANDA INSTITUTE OF TECHNOLOGY FEEDBACK FORM</h1></center></header>
+
+        <form method="post">
+            <table>
+                
+                <!-- Name input -->
+                <tr>
+                    <td><label>Name</label></td>
+                    <td><input type="text" placeholder="Enter the name in caps" required/></td>
+                </tr>
+
+                <!-- Register number  -->
+                <tr>
+                    <td><label>Register number</label></td>
+                    <td><input type="text" placeholder="Enter your Register number" required/></td>
+                </tr>
+
+                <!-- Date of birth -->
+                <tr>
+                    <td><label>Date of Birth</label></td>
+                    <td><input type="date" required/></td>
+                </tr>
+
+                <!-- Age -->
+                <tr>
+                    <td><label>Age</label></td>
+                    <td><input type="number" min=0 required/></td>
+                </tr>
+
+                <!-- Gender -->
+                <tr>
+                        <td><label>Gender</label></td>
+                        <td>
+                            <input type="radio" name="gender"/>Male
+                            <input type="radio" name="gender"/>Female
+                            <input type="radio" name="gender"/>Others
+                        </td>
+                </tr>
+
+                <!-- Father's name -->
+                <tr>
+                    <td><label>Enter Father's name</label></td>
+                    <td><input type="text" placeholder="Enter the name in caps" required/></td>
+                </tr>
+
+                <!-- Mother's name -->
+                <tr>
+                    <td><label>Enter Mother's name</label></td>
+                    <td><input type="text" placeholder="Enter the name in caps" required/></td>
+                </tr>
+
+                <!-- E mail input -->
+                <tr>
+                    <td><label>Mail</label></td>
+                    <td><input type="email" placeholder="Enter valid email adress"/></td>
+                </tr>
+
+                <!-- Address input -->
+                <tr>
+                    <td><label>Address</label></td>
+                    <td><textarea cols="30" rows="3" required></textarea></td>
+                </tr>
+
+                <!-- Mobile number input -->
+                <tr>
+                    <td><label>Mobile</label></td>
+                    <td><input type="tel" minlength="10" maxlength="10" placeholder="Enter yur 10 digit number" required/></td>
+                </tr>
+
+                <!-- EDucation -->
+                <tr>
+                    <td><label>Education</label></td>
+
+                    <td>
+                        <select required>
+                            <option value="" selected disabled>Select your education</option>
+                            <option value="ug">Under Graduate</option>
+                            <option value="pg">Post Graduate</option>
+                        </select>
+                    </td>
+
+                </tr>
+
+                <!-- Department -->
+                <tr>
+                    <td><label>Department</label></td>
+
+                    <td>
+                        <select required>
+                            <option value="" selected disabled>Select your department</option>
+                            <option value="cse">Computer Science Engineering</option>
+                            <option value="eee">Electrical and Electronics Engineering</option>
+                            <option value="ece">Electronics and Communication Engineering</option>
+                            <option value="ce">Civil Engineering</option>
+                            <option value="me">Mechanical Engineering</option>
+                            <option value="che">Chemical Engineering</option>
+                            <option value="mte">Mechatronics Engineering</option>
+                            <option value="ei">Electronics and Instrumentation Engineering</option>
+                        </select>
+                    </td>
+
+                </tr>
+
+                <!-- Year -->
+
+                <tr>
+                    <td><label>Year</label></td>
+
+                    <td>
+                        <select required>
+                            <option value="" selected disabled>Select your year</option>
+                            <option value="1">I</option>
+                            <option value="2">II</option>
+                            <option value="3">III</option>
+                            <option value="4">IV</option>
+                        </select>
+                    </td>
+
+                <!-- Issues -->
+                <tr>
+                    <td><label>Select the issues</label></td>
+                    
+                    <td>
+                        <fieldset>
+                            <input type="checkbox" name="StudentIssues"/>Student Issues
+                            <input type="checkbox" name="ManagementIssues"/>Management Issues
+                            <input type="checkbox" name="PersonalIssues"/>Personal Issues
+                        </fieldset>
+                    </td>
+                </tr>
+
+                <!-- Feedback Input -->
+                 <tr>
+                    <td><label>Feedback</label></td>
+                    <td><textarea cols="30" rows="3" required></textarea></td>
+                </tr>
+
+                
+                   <!-- Submit and Reset -->
+                <tr>
+                    <td><label></label></td> 
+                    <td>
+                        <br><input type="submit" value="Submit">
+                        <input type="reset" value="Reset"/>
+                    </td>
+                </tr>
+                           
+            </table>
+
+        </form>
+
+        <!-- Table -->
+        <div>
+            <table border="3">
+                <thead>
+                    <th>S.NO</th>
+                    <th>NAME</th>
+                    <th>REGISTER NUMBER</th>
+                    <th>DATE OF BIRTH</th>
+                    <th>AGE</th>
+                    <th>GENDER</th>
+                    <th>FATHER'S NAME</th>
+                    <th>MOTHER'S NAME</th>
+                    <th>E-MAIL</th>
+                    <th>ADDRESS</th>
+                    <th>MOBILE</th>
+                    <th>EDUCATION</th>
+                    <th>DEPARTMENT</th>
+                    <th>YEAR</th>
+                    <th>ISSUES</th>
+                    <th>FEEDBACK</th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>PRASANTH</td>
+                        <td>SFEB95</td>
+                        <td>01-02-2000</td>
+                        <td>26</td>
+                        <td>MALE</td>
+                        <td>SAKTHIVEL</td>
+                        <td>VASUKI</td>
+                        <td>prasanthsakthi122000@gmail.com</td>
+                        <td>Chennai</td>
+                        <td>9952717393</td>
+                        <td>UG</td>
+                        <td>Computer Science Engineering</td>
+                        <td>IV</td>
+                        <td>Management Issues</td>
+                        <td>The classrooms in our college are not well maintained. Many benches are broken and the fans and lights do not work properly, which makes it difficult for students to concentrate during lectures.</td>
+                    </tr>
+                </tbody>
+
+                <tbody>
+                    <tr>
+                        <td>2</td>
+                        <td>DEEPAK</td>
+                        <td>SFEB33</td>
+                        <td>05-01-2006</td>
+                        <td>21</td>
+                        <td>MALE</td>
+                        <td>RAMESH</td>
+                        <td>VIJAYALAKSHMI</td>
+                        <td>itzdeepak@gmail.com</td>
+                        <td>Chennai</td>
+                        <td>4528565595</td>
+                        <td>UG</td>
+                        <td>Computer Science Engineering</td>
+                        <td>III</td>
+                        <td>Management Issues</td>
+                        <td>The college does not provide enough career guidance or placement training. Many students are unsure about job opportunities and industry requirements after completing their course.</td>
+                    </tr>
+                </tbody>
+ 
+            </table>
+        </div>
+
+       
+    </center></body>
+</html>
