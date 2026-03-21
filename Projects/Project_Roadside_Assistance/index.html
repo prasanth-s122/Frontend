@@ -4,22 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
 </head>
-<body>
-    <div class="h-screen flex justify-center items-center" >
-            <div class="container p-5 border border-black rounded-xl max-w-lg " >
-                <form action="" method="post" class="flex flex-col gap-3">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Enter your name" class="border border-black rounded-lg">
-                    <label for="email">Enter e-mail</label>
-                    <input type="email" id="email" class="border border-black rounded-lg">
-                    <label for="password">Password</label>
-                    <input type="password" name="" id="password" class="border border-black rounded-lg">
-                    <label for="contact">Mobile number</label>
-                    <input type="tel" inputmode="numeric" name="" id="contact" pattern="[0-9]{10}" maxlength="10" class="border border-black rounded-lg ">
+<body class="d-flex justify-content-center align-items-center vh-100">
+    <div class="container mt-5 bg-primary-subtle w">
+            <div class="row justify-content-center " >
+                <form action="" method="post" class="col-md-6">
+                    <label class="form-label" for="name">Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" class="form-control" >
+                    <label class="form-label" for="email">Enter e-mail</label>
+                    <input type="email" id="email" class="form-control">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" name="" id="password" class="form-control">
+                    <label class="form-label" for="contact">Mobile number</label>
+                    <input type="tel" inputmode="numeric" name="" id="contact" pattern="[0-9]{10}" maxlength="10" class="form-control">
+                    <label class="form-label" for="address">Address</label>
+                    <textarea name="" id="address" class="form-control"></textarea>
                     
-                    <input type="submit" value="Register" class="bg-blue-400 "  >
+                    <input type="submit" value="Register" class="btn btn-primary m-3">
                 </form>
             </div>
     </div>
