@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Aid - Mechanic Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-darkBg text-slate-200 min-h-screen">
+
+    <!-- Decorative background elements -->
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-neonBlue rounded-full mix-blend-multiply filter blur-[150px] opacity-20 animate-pulse-slow pointer-events-none"></div>
+    <div class="fixed bottom-0 right-1/4 w-96 h-96 bg-neonPurple rounded-full mix-blend-multiply filter blur-[150px] opacity-20 pointer-events-none" style="animation-delay: 2s;"></div>
+
+    <!-- Nav bar minimal -->
+    <nav class="absolute w-full z-50 top-0 pt-6 px-6 sm:px-8">
+        <a href="main.html" class="inline-flex items-center text-slate-400 hover:text-white transition group">
+            <svg class="w-6 h-6 mr-2 transform group-hover:-translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Back to Dashboard
+        </a>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-32 pb-16 text-center relative z-10 animate-slide-up">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
+                <span class="text-gradient">Mechanic</span> Assistance
+            </h1>
+            <p class="text-xl text-slate-400">Choose the specific type of roadside support you need.</p>
+        </div>
+    </section>
+
+    <!-- Banner -->
+    <section class="relative z-10 px-6 animate-fade-in" style="animation-delay: 0.2s;">
+        <div class="flex justify-center mb-16 max-w-5xl mx-auto">
+            <div class="relative group cursor-pointer w-full">
+                <div class="absolute -inset-1 bg-gradient-to-r from-neonBlue to-neonPurple rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
+                <div class="relative glass p-2 rounded-3xl flex items-center justify-center overflow-hidden bg-slate-900 shadow-2xl">
+                    <img src="Images/Mechanicbanner.png" alt="Mechanic Banner" class="w-full max-w-4xl rounded-2xl object-cover transform group-hover:scale-[1.02] transition duration-700 ease-out opacity-90 group-hover:opacity-100">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section class="pb-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+
+            <!-- Tyres -->
+            <div class="glass rounded-3xl p-8 text-center hover:-translate-y-2 transition-transform duration-500 group relative overflow-hidden animate-slide-up" style="animation-delay: 0.3s;">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-neonBlue/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                <div class="relative z-10">
+                    <div class="h-40 glass rounded-2xl mb-6 flex items-center justify-center overflow-hidden p-4">
+                        <img src="Images/tyres.png" alt="Tyres" class="h-28 object-contain transform group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3 tracking-wide">Tyres and Brakes</h3>
+                    <p class="text-slate-400 mb-8 leading-relaxed text-sm">Fast replacement or repair for flat tyres and brake checks.</p>
+                    <a href="tyre_assist.html" class="inline-block w-full py-3 px-6 rounded-xl bg-slate-800 text-white font-semibold border border-slate-700 hover:border-neonBlue hover:bg-neonBlue hover:text-black transition-all duration-300">
+                        Request Assist
+                    </a>
+                </div>
+            </div>
+
+            <!-- Battery / Electrical -->
+            <div class="glass rounded-3xl p-8 text-center hover:-translate-y-2 transition-transform duration-500 group relative overflow-hidden animate-slide-up" style="animation-delay: 0.4s;">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-neonPurple/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                <div class="relative z-10">
+                    <div class="h-40 glass rounded-2xl mb-6 flex items-center justify-center overflow-hidden p-4">
+                        <img src="Images/ecc.png" alt="Electronics" class="h-28 object-contain transform group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3 tracking-wide">Electrical Components</h3>
+                    <p class="text-slate-400 mb-8 leading-relaxed text-sm">Jump-starts, battery replacement, and complex wiring fixes.</p>
+                    <a href="Electronic_assists.html" class="inline-block w-full py-3 px-6 rounded-xl bg-slate-800 text-white font-semibold border border-slate-700 hover:border-neonPurple hover:bg-neonPurple hover:text-white transition-all duration-300">
+                        Request Assist
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tow -->
+            <div class="glass rounded-3xl p-8 text-center hover:-translate-y-2 transition-transform duration-500 group relative overflow-hidden animate-slide-up" style="animation-delay: 0.5s;">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                <div class="relative z-10">
+                    <div class="h-40 glass rounded-2xl mb-6 flex items-center justify-center overflow-hidden p-4">
+                        <img src="Images/tow.png" alt="Tow Truck" class="h-28 object-contain transform group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3 tracking-wide">Tow-Truck Service</h3>
+                    <p class="text-slate-400 mb-8 leading-relaxed text-sm">Safe and reliable transport for your significantly damaged vehicle.</p>
+                    <a href="Tow.html" class="inline-block w-full py-3 px-6 rounded-xl bg-slate-800 text-white font-semibold border border-slate-700 hover:border-white hover:bg-white hover:text-black transition-all duration-300">
+                        Summon
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

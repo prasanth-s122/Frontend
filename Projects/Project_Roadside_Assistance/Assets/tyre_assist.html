@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Aid - Tyres & Brakes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-animated-gradient min-h-screen flex text-slate-200 p-4 items-center justify-center">
+
+    <!-- Decorative glowing orbs -->
+    <div class="fixed top-1/4 left-1/4 w-64 h-64 bg-neonBlue rounded-full mix-blend-multiply filter blur-[100px] opacity-30 animate-pulse-slow pointer-events-none"></div>
+    <div class="fixed bottom-1/4 right-1/4 w-64 h-64 bg-neonPurple rounded-full mix-blend-multiply filter blur-[100px] opacity-30 animate-pulse-slow pointer-events-none" style="animation-delay: 2s;"></div>
+
+    <div class="w-full max-w-lg animate-slide-up relative z-10">
+        
+        <!-- Back Link -->
+        <a href="mechanic.html" class="inline-flex items-center text-slate-400 hover:text-white transition group mb-6">
+            <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Back to Mechanic Services
+        </a>
+
+        <div class="glass p-8 sm:p-10 rounded-2xl relative overflow-hidden">
+            <!-- Glowing accent line at top -->
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neonBlue to-sky-400"></div>
+            
+            <form action="Mechanic_confirmation.html" method="post" class="space-y-6">
+                
+                <!-- Title -->
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-white mb-2 tracking-tight"><span class="text-gradient">Tyres</span> & Brakes</h2>
+                    <p class="text-slate-400 text-sm">Professional repair and replacement assistance.</p>
+                </div>
+
+                <div class="space-y-5">
+                    
+                    <!-- Mobile number -->
+                    <div>
+                        <label class="block text-slate-300 text-sm font-semibold mb-2" for="contact">Contact Number</label>
+                        <input type="tel" inputmode="numeric" name="" id="contact" pattern="[0-9]{10}" maxlength="10" placeholder="9876543210" class="glass-input w-full px-4 py-3 rounded-xl" required>
+                    </div>
+
+                    <!-- Location -->
+                    <div>
+                        <label class="block text-slate-300 text-sm font-semibold mb-2" for="address">Current Location</label>
+                        <textarea name="" id="address" rows="2" placeholder="Where is your vehicle parked?" class="glass-input w-full px-4 py-3 rounded-xl resize-none" required></textarea>
+                    </div>
+
+                    <!-- Required items -->
+                    <div>
+                        <label class="block text-slate-300 text-sm font-semibold mb-2" for="problems">Describe the Issue</label>
+                        <textarea name="" id="problems" rows="3" placeholder="e.g. Flat front left tyre, need a replacement..." class="glass-input w-full px-4 py-3 rounded-xl resize-none" required></textarea>
+                    </div>
+
+                </div>
+
+                <!-- Button -->
+                <div class="pt-4">
+                    <button type="submit" class="w-full py-3.5 px-4 bg-gradient-to-r from-neonBlue to-sky-400 text-black font-bold text-lg rounded-xl shadow-[0_0_15px_rgba(0,242,254,0.4)] hover:shadow-[0_0_25px_rgba(0,242,254,0.6)] transform hover:-translate-y-1 transition-all duration-300">
+                        Request Assistance
+                    </button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
