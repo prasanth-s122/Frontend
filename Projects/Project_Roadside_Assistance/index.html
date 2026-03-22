@@ -3,25 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
+    <title>Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="d-flex justify-content-center align-items-center vh-100">
-    <div class="container mt-5 bg-primary-subtle w">
-            <div class="row justify-content-center " >
-                <form action="" method="post" class="col-md-6">
-                    <label class="form-label" for="name">Name</label>
-                    <input type="text" id="name" placeholder="Enter your name" class="form-control" >
-                    <label class="form-label" for="email">Enter e-mail</label>
-                    <input type="email" id="email" class="form-control">
-                    <label class="form-label" for="password">Password</label>
-                    <input type="password" name="" id="password" class="form-control">
-                    <label class="form-label" for="contact">Mobile number</label>
-                    <input type="tel" inputmode="numeric" name="" id="contact" pattern="[0-9]{10}" maxlength="10" class="form-control">
-                    <label class="form-label" for="address">Address</label>
-                    <textarea name="" id="address" class="form-control"></textarea>
+<body class="bg-gray-200">
+    <div class="container h-screen flex justify-center items-center">
+            <div class=" p-4 max-w-lg w-full bg-gray-50 flex justify-center items-center rounded-lg shadow-[0_10px_10px_10px_gray]">
+                <form action="Assets/login.html" method="post" >
                     
-                    <input type="submit" value="Register" class="btn btn-primary m-3">
+                    <!-- Title -->
+                    <div>
+                        <p class="text-2xl font-bold text-center text-blue-700 mb-6">REGISTRATION</p>
+                    </div>
+                    <!-- Name -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-semibold mb-2" for="name">Name</label>
+                        <input type="text" id="name"  class=" w-full px-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 focus:bg-blue-50" >
+                    </div>
+                        
+                    <!-- E mail -->
+                    <div class="mb-4">
+                        <label  for="email">E-mail</label>
+                        <input type="email" id="email" class=" w-full px-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 focus:bg-blue-50" >
+                    </div>
+
+                    <!-- Age -->
+                     <div class="mb-4">
+                        <label  for="age">Age</label>
+                        <input type="number" id="age" class=" w-full px-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 focus:bg-blue-50" >
+                    </div>
+                    
+                    <!-- Password -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-semibold mb-2" for="password">Password</label>
+                        <input type="password" name="" id="password" class=" w-full px-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 focus:bg-blue-50">
+                    </div>
+
+                    <!-- Mobile number -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-semibold mb-2" for="contact">Mobile number</label>
+                        <input type="tel" inputmode="numeric" name="" id="contact" pattern="[0-9]{10}" maxlength="10" class=" w-full px-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 focus:bg-blue-50">
+                    </div>
+
+                    <!-- Address -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-semibold mb-2" for="address">Address</label>
+                        <textarea name="" id="address" class=" w-full px-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 focus:bg-blue-50"></textarea>
+                    </div>
+
+                    <!-- Button -->
+                    <div class="mb-4">
+                        <button type="submit" class="bg-blue-500 text-white px-10 py-2 w-full hover:bg-blue-700 transition duration-700 rounded-lg">Sign in</button>
+                    </div>
+                    
+                    
                 </form>
             </div>
     </div>
@@ -33,7 +68,14 @@
 
 
 
+                    
+                    
+                    
+                    
+                    
 
+
+                    
 
 
 
