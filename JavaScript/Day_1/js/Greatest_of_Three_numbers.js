@@ -1,0 +1,22 @@
+let first_number = 100
+let second_number = 466
+let third_number = 150
+
+console.log("First Number is " + first_number)
+console.log("Second Number is " + second_number)
+console.log("Third Number is " + third_number)
+
+if(first_number > second_number && first_number > third_number){
+    console.log("The first number "+ first_number + " is the greatest number")
+    
+    
+}
+else if(second_number > first_number && second_number > third_number){
+    console.log("The second number "+ second_number + " is the greatest number")
+}   
+else if(third_number > first_number && third_number > second_number){
+    console.log("The third number "+ third_number + " is the greatest number")
+}
+else {
+    console.log("All three numbers are equal.")
+}

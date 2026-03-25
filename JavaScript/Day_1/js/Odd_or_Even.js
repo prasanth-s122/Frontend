@@ -1,0 +1,10 @@
+let input_number = 10
+console.log("The number is " + input_number)
+
+if (input_number % 2 == 0) {
+    console.log(input_number + " is an even number")
+}
+
+else {
+    console.log(input_number + " is an odd number")
+}

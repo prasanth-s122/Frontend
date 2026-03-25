@@ -1,0 +1,16 @@
+let first_number = 100
+let second_number = 90
+
+console.log("First Number is " + first_number)
+console.log("Second Number is " + second_number)
+
+
+if (first_number > second_number) {
+    console.log(first_number + " is greater than " + second_number)
+}
+else if (second_number > first_number) {
+    console.log(second_number + " is greater than " + first_number)
+}
+else {
+    console.log(first_number + "is equal to" + second_number)
+}
