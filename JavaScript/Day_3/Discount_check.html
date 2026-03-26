@@ -1,0 +1,25 @@
+<script>
+    let product_price = 1500
+    console.log("Price is " + product_price)
+
+    // Discount check
+    if (product_price > 1000){
+
+        console.log("10 % discount available")
+
+        let discount_cost
+        let final_cost
+
+        discount_cost = product_price / 10
+        final_cost = product_price - discount_cost
+
+        console.log("Discounted price is ₹ " + discount_cost)
+        console.log("Pay ₹ " + final_cost + " Only")
+
+    }
+
+    else {
+        console.log("Discount not available")
+        console.log("Pay ₹ " + product_price)
+    }
+</script>

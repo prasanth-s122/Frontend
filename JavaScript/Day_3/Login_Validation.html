@@ -1,0 +1,22 @@
+<script>
+    // User Inputs
+    let input_name = "Geralt"
+    let input_password = "Roach"
+
+    // User credentials on the server
+    let user_name = "Geralt"
+    let user_password = "Roach"
+
+    // Validation
+    if (input_name === user_name && input_password === user_password) {
+        console.log("Login Successful")
+    } 
+    else if (input_name !== user_name){
+        console.log("Invalid Username")
+        console.log("Login Failed")
+    }
+    else if (input_password !== user_password){
+        console.log("Incorrect Password")
+        console.log("Login Failed")
+    }
+</script>
