@@ -1,9 +1,9 @@
 <script>
-    let input_year = 2026
+    let input_year = 2100
     console.log("Year is " + input_year)
 
     // Leap Year check
-    if (input_year % 4 == 0){
+    if (input_year % 4 == 0 && input_year % 100 !== 0 || input_year % 400 == 0){
         console.log(input_year + " is a leap year")
     }
     else {
