@@ -1,0 +1,55 @@
+<script>
+    let input_number = 101
+    console.log(input_number + ' is the number');
+
+
+    if (input_number % 2 == 0 && input_number > 10){
+        console.log(input_number + ' is even and greater than 10 ');
+
+        if (input_number % 5 == 0){
+            console.log(input_number + ' is also divisible by 5 ');
+            
+        }else{
+            console.log(input_number + ' is not divisible by 5')
+        }
+        
+    }else if(input_number % 2 == 0 && input_number < 10){
+        console.log(input_number + ' is even and less than 10 ');
+
+        if (input_number % 5 == 0){
+            console.log(input_number + ' is also divisible by 5 ');
+            
+        }else{
+            console.log(input_number + 'is not divisible by 5')
+        }
+    }else if (input_number % 2 != 0 && input_number > 10){
+        console.log(input_number + ' is odd and greater than 10')
+
+        
+         if (input_number % 5 == 0){
+            console.log(input_number + ' is also divisible by 5 ');
+            
+        }else{
+            console.log(input_number + ' is not divisible by 5')
+        }
+    }else if (input_number % 2 != 0 && input_number < 10){
+        console.log(input_number + ' is Odd and less than 10')
+
+        
+         if (input_number % 5 == 0){
+            console.log(input_number + ' is also divisible by 5 ');
+            
+        }else{
+            console.log(input_number + ' is not divisible by 5')
+        }
+    }else if (input_number == 10){
+        
+        console.log(input_number + ' is 10')
+
+    }else{
+        console.log(input_number + 'is Odd, less than 10 and not divisible by 5 ');
+        
+    }
+    
+
+</script>
