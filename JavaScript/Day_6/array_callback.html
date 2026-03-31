@@ -1,0 +1,18 @@
+<script>
+    let number_array = [10 , 20 , 30 , 40 , 50]
+
+    const print = (a , i ) => {
+        console.log(a[i])
+    }
+
+    const process = (a , show) => {
+        let length_array = a.length
+
+        for (let i = 0 ; i < length_array ; i++) {
+            show(a , i)
+        }
+    }
+
+    process (number_array , print)
+
+</script>

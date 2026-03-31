@@ -1,0 +1,16 @@
+<script>
+
+    let greeting_message = "Hello"
+    let person_name = "Kratos"
+
+    const print = (greet , name) => {
+        console.log(greet + " " + name)
+    }
+
+    const message = (a , b , callback) => {
+        callback(a , b)
+    }
+
+    message (greeting_message , person_name , print )
+
+</script>

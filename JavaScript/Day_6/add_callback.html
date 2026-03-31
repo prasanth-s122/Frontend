@@ -1,0 +1,19 @@
+<script>
+    let input_a = 100
+    let input_b = 50
+
+    const printing = (a , b , addition) => {
+
+        let sum = addition(a , b)   
+        console.log(sum);
+        
+
+    }
+
+    const add = (a , b) => {
+        return a + b
+    }
+
+    printing(input_a , input_b , add)
+
+</script>

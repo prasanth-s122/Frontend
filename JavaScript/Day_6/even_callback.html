@@ -1,0 +1,28 @@
+<script>
+    let input_number = 10
+
+    const even = ( a ) => {
+
+        if (a % 2 == 0){
+            return true
+        }else{
+            return false
+        }
+
+    }
+
+    const evencheck = ( a , check) => {
+
+        let status = check(a)
+
+        if ( status == true){
+            console.log(a + " is even number");
+            
+        }else{
+            console.log(a + " is odd number");
+        }
+
+    }
+
+    evencheck(input_number , even)
+</script>
