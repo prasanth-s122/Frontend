@@ -1,0 +1,31 @@
+<script>
+
+    let input_array = [10 , 20 , 30 , 40 ,50]
+
+    const input_pass = (a) => {
+
+        console.log("The array is " , a);
+
+        let sum = 0
+
+        const addition = () => {
+
+            for(let i = 0 ; i < a.length ; i++){
+                sum += a[i]
+
+            }   
+            console.log ("The sum is " , sum)
+
+        }
+
+        
+        return addition
+        
+
+    }
+
+    let add = input_pass(input_array)
+
+    add()
+
+</script>
