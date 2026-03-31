@@ -1,0 +1,30 @@
+<script>
+
+    
+
+    const outer = () => {
+        let count = 0
+
+        const inner = () => {
+            count++
+
+            console.log(count);
+            
+
+        }
+        return inner
+
+    }
+
+    let counter = outer()
+
+    counter()
+    counter()
+    counter()
+    counter()
+    counter()
+    counter()
+    
+    
+
+</script>

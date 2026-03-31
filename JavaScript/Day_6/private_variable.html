@@ -1,0 +1,25 @@
+<script>
+
+    
+
+    const outer = () => {
+        let secret = 100
+
+        const inner = () => {
+        
+            console.log(secret);
+            
+
+        }
+        
+        return inner
+
+    }
+
+    let secret = outer()
+
+    secret()
+    
+    
+
+</script>

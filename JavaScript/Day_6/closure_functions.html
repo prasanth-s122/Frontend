@@ -1,0 +1,18 @@
+<script>
+    let person_name = "Thor"
+
+    const print = (a) => {
+        console.log("Name is " + a)
+
+        const inner = () => {
+            console.log("Welcome " + a)
+        }
+
+        return inner
+
+    }
+
+    let final = print(person_name)
+    final()
+
+</script>
