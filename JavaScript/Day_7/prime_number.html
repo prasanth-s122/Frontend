@@ -1,0 +1,28 @@
+<script>
+    let input_number = 31
+
+    const prime = (a) => {
+
+        
+
+        for(let i = a-1 ; i > 1 ; i--){
+            
+            if(a % i == 0){
+                return false
+            }
+
+        }
+
+    
+
+    }
+
+    if(prime(input_number) === false){
+        console.log(input_number + " is not a prime number");
+        
+    }else{
+        console.log(input_number + " is a prime number");
+    }
+
+
+</script>

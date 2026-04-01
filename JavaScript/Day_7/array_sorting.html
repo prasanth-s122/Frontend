@@ -1,0 +1,44 @@
+<script>
+    let array = [11 , 2 , 3 , 4 , 9 , 8 , 10 , 7 , 6 , 5]
+
+    console.log("Array  is " , array);
+    console.log("The elements  are ");
+
+    for (let i = 0 ; i < array.length ; i++){
+        console.log(array[i]);
+        
+    }
+
+    const sorting = (a) => {
+
+        for (let i = 0 ; i < a.length ; i++){
+
+            for (let j = 0 ; j < a.length - 1 ; j++){
+                
+                if ( a[j] > a[j+1]){
+
+                let x = a[j]
+                a[j] = a[j+1]
+                a[j+1] = x
+
+                }
+
+            }
+
+        }
+
+        return a
+
+    }
+
+    let sort = sorting(array)
+    console.log("Sorted array  is " , sort);
+    console.log("Sorted elements  are ");
+
+    for (let i = 0 ; i < sort.length ; i++){
+        console.log(sort[i]);
+        
+    }
+    
+    
+</script>
