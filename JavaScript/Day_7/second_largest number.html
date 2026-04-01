@@ -1,0 +1,29 @@
+<script>
+    let array = [11 , 2 , 3 , 4 , 9 , 8 , 10 , 7 , 6 , 5]
+
+    const second_largest = (a) => {
+
+        for (let i = 0 ; i < a.length ; i++){
+
+            for (let j = 0 ; j < a.length - 1 ; j++){
+                
+                if ( a[j] > a[j+1]){
+
+                let x = a[j]
+                a[j] = a[j+1]
+                a[j+1] = x
+
+                }
+
+            }
+
+        }
+
+        return a[a.length - 2]
+
+    }
+
+    let second = second_largest(array)
+    console.log("Second largest number in the array is " , second);
+    
+</script>
