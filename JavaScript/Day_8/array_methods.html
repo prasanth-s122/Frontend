@@ -1,0 +1,96 @@
+<script>
+    let array = [10 , 20 , 90 , 200 , 300 , 30 , 40 , 50]
+
+    console.log("The array is " );
+    console.log(array);
+
+    console.log("Push");
+
+    array.push(100)
+
+    console.log("Array after pushing is ");
+    console.log(array);
+
+    console.log("Pop");
+    
+    console.log("Popped element is " + array.pop());
+
+    console.log("The array is " );
+    console.log(array);
+
+    console.log("Shift");
+
+    console.log("Shifted element is " + array.shift());
+    
+
+    console.log("The array is after shifting is ");
+    console.log(array);
+
+    console.log("Unshift");
+
+    array.unshift(999)
+
+    console.log("The array is after unshifting is " );
+    console.log(array);
+
+    console.log("Includes");
+
+    let element = 30
+
+    if (array.includes(element) === true){
+        console.log(element + " is present in " );
+        console.log(array);
+        
+    }else{
+        console.log(element + " is not present in " );
+        console.log(array);
+    }
+    
+
+
+    console.log("Index");
+
+    let element_2 = 40
+    
+
+    console.log("Index of " + element_2 + " in the array is " + array.indexOf(element_2));
+    
+    console.log("Slice");
+
+    console.log(array.slice(1,4+1))
+
+    console.log( array);
+
+    console.log("Splice");
+
+    console.log(array.splice(1,4,88,66,77))
+
+    console.log("The array after splicing is "  );
+
+    console.log(array);
+    
+
+    console.log("Sorting");
+    
+
+    console.log("The array is " + array);
+
+    console.log( array.sort());
+
+    let array_2 = [10000,20000,30000,40000]
+
+    let array_3 = array.concat(array_2)
+    console.log("Array after concat is ");
+    console.log(array_3);
+
+    console.log("reverse");
+
+    console.log("The array is ");
+
+    console.log(array);
+
+    console.log("Reversed array is ");
+    console.log(array.reverse());
+    
+    
+</script>
