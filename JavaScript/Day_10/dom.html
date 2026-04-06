@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     
 </head>
 <body>
+
+    <div class="flex justify-center items-center">
+        <button id="btn" class="rounded-lg bg-blue-700 text-white text-center w-20">Toggle</button>
+    </div>
     
+    <div class="flex justify-center items-center m-6">
+        <h1 id="heading" class="bg-black text-white flex justify-center items-center w-56  h-48  text-center">This is dom</h1>
+    </div>
+
+
+ <script>
+    console.log(document.body);
+
+    const heading_1 = document.getElementById("heading")
+    console.log(heading_1);
+
+    const nbtn = document.getElementById("btn")
+    console.log(nbtn);
+    
+    
+    
+ </script>
 </body>
 </html>
