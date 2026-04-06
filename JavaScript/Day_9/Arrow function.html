@@ -1,0 +1,31 @@
+<script>
+    let first_number = 10000
+    let second_number = 20000
+
+    console.log(`The numbers are ${first_number} and ${second_number}`);
+
+    // Normal function
+    console.log(`Normal Function`);
+
+    function n_add (a,b) {
+        return a + b
+    }
+
+    let n_sum = n_add(first_number , second_number)
+
+    console.log(`Sum using normal function is ${n_sum}`);
+
+    // arrow function 
+    console.log(`Arrow function`);
+
+    const a_function = (a,b) => {
+        return a+ b
+    }
+
+    let a_sum = a_function(first_number , second_number)
+    
+    console.log(`Sum using normal function is ${a_sum}`);
+    
+    
+    
+</script>

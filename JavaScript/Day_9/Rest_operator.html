@@ -1,0 +1,15 @@
+<script>
+    let array = [10 , 20 , 30 , 40 , 50]
+    let sum = 0
+
+    const addition = (...a) => {
+        a.forEach(element => { 
+            sum += element
+        })
+        return sum
+    }
+
+    let result = addition(...array)
+    console.log(`The sum is ${result}`);
+    
+</script>
