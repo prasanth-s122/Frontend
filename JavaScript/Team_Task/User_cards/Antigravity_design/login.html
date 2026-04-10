@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lore Portal | Login</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --font-inter: 'Inter', sans-serif;
+        }
+        body { font-family: var(--font-inter); }
+    </style>
+</head>
+
+<body class="min-h-screen flex justify-center items-center bg-slate-900 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-900 via-slate-900 to-black relative overflow-hidden">
+
+    <!-- Decorative glowing orbs -->
+    <div class="absolute top-20 right-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-pulse"></div>
+    <div class="absolute bottom-20 left-20 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-pulse" style="animation-delay: 2s;"></div>
+
+    <div class="z-10 w-full max-w-md p-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl">
+        <div class="mb-8 text-center">
+            
+            <h2 class="text-3xl font-bold tracking-tight text-white mb-2">Welcome Back</h2>
+            <p class="text-sm text-gray-300">Sign in to access the user cards dashboard</p>
+        </div>
+
+        <form class="flex flex-col gap-5">
+            
+            <div class="flex flex-col gap-1.5">
+                <label for="email" class="text-sm font-medium text-gray-300 ml-1">Email Address</label>
+                <input id="email" type="email" placeholder="john@example.com" class="bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all">
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+                <label for="password" class="text-sm font-medium text-gray-300 ml-1">Password</label>
+                <input id="password" type="password" placeholder="••••••••" class="bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all">
+            </div>
+
+            <button id="loginBtn" class="mt-4 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 text-white font-semibold py-3 px-4 rounded-xl shadow-lg transform transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 border border-white/10">
+                Sign In
+            </button>
+            
+            <p class="text-center text-sm text-gray-400 mt-2">
+                Don't have an account? <a href="Register.html" class="text-blue-400 hover:text-blue-300 font-medium transition-colors">Register</a>
+            </p>
+        </form>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 flex flex-col gap-2 z-50"></div>
+
+    <script src="Assets/JS/login.js"></script>
+
+</body>
+</html>
