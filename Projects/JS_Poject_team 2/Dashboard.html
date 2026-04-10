@@ -5,6 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | The Realms</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Gradients for realms without images */
+        .bg-niflheim { background: linear-gradient(135deg, #101c26 0%, #294c4c 100%); }
+        .bg-helheim { background: linear-gradient(135deg, #07090f 0%, #1c3619 100%); }
+        .bg-svartalfheim { background: linear-gradient(135deg, #2b1d0c 0%, #594726 100%); }
+        .realm-card .css-bg { width: 100%; height: 100%; }
+        .realm-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media (max-width: 900px) {
+            .realm-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .realm-grid { grid-template-columns: 1fr; }
+        }
+        
+        /* Dashboard Additional Info */
+        .lore-intro {
+            background: var(--bg-panel);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px auto;
+            max-width: 900px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Footer Element */
+        .site-footer {
+            margin-top: 80px;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            background: rgba(0, 0, 0, 0.6);
+        }
+    </style>
 </head>
 <body>
 
@@ -18,12 +55,19 @@
 
     <main class="main-content">
         <div style="text-align: center;">
-            <h2>Select Your Destination</h2>
-            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Through the World Tree, all places are connected. Where does your journey take you next?</p>
+            <h2>The Nine Realms</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">"Knowledge is its own reward." Ensure your weapons are sharp and your mind sharper before venturing forth into the mythical unknown.</p>
+        </div>
+
+        <div class="lore-intro">
+            <h4>The Great World Tree</h4>
+            <br>
+            <p style="color: var(--text-light);">Yggdrasil, the great ash tree, binds the universe together. Within its sprawling branches rest the Nine Realms of Norse Mythology. Though they share the same physical universe space, they occupy different dimensions layered on top of one another. The only way to traverse between them is through the great travel rooms built by Tyr, requiring immense magical energy from the Bifröst.</p>
+            <p style="color: var(--gold-accent); margin-top: 15px; font-weight: bold;">Select a realm below to delve deep into its ancient history and secrets.</p>
         </div>
 
         <div class="realm-grid">
-            <!-- Midgard -->
+            <!-- 1. Midgard -->
             <div class="realm-card" onclick="window.location.href='realms/midgard.html'">
                 <img src="Assets/Images/midgbanner.png" alt="Midgard">
                 <div class="overlay">
@@ -32,25 +76,85 @@
                 </div>
             </div>
 
-            <!-- Alfheim -->
+            <!-- 2. Alfheim -->
             <div class="realm-card" onclick="window.location.href='realms/alfheim.html'">
                 <img src="Assets/Images/alfheim_card.png" alt="Alfheim">
                 <div class="overlay">
                     <h3 class="realm-title">Alfheim</h3>
-                    <p class="realm-desc">The eternal war of Light and Dark Elves over the Light of Alfheim.</p>
+                    <p class="realm-desc">The beautiful but war-torn realm of the Light and Dark Elves.</p>
                 </div>
             </div>
 
-            <!-- Vanaheim -->
+            <!-- 3. Vanaheim -->
             <div class="realm-card" onclick="window.location.href='realms/vanaheim.html'">
                 <img src="Assets/Images/vanaheim_card.png" alt="Vanaheim">
                 <div class="overlay">
                     <h3 class="realm-title">Vanaheim</h3>
-                    <p class="realm-desc">The lush, chaotic jungle realm of the Vanir Gods.</p>
+                    <p class="realm-desc">The lush, chaotic, and magical jungle realm of the Vanir.</p>
+                </div>
+            </div>
+
+            <!-- 4. Asgard -->
+            <div class="realm-card" onclick="window.location.href='realms/asgard.html'">
+                <img src="Assets/Images/asgard_card.png" alt="Asgard">
+                <div class="overlay">
+                    <h3 class="realm-title">Asgard</h3>
+                    <p class="realm-desc">The glorious divine realm of the Aesir gods, ruled by Odin.</p>
+                </div>
+            </div>
+
+            <!-- 5. Jotunheim -->
+            <div class="realm-card" onclick="window.location.href='realms/jotunheim.html'">
+                <img src="Assets/Images/jotunheim_card.png" alt="Jotunheim">
+                <div class="overlay">
+                    <h3 class="realm-title">Jotunheim</h3>
+                    <p class="realm-desc">The hidden, mountainous realm of the Giants.</p>
+                </div>
+            </div>
+
+            <!-- 6. Muspelheim -->
+            <div class="realm-card" onclick="window.location.href='realms/muspelheim.html'">
+                <img src="Assets/Images/muspelheim_card.png" alt="Muspelheim">
+                <div class="overlay">
+                    <h3 class="realm-title">Muspelheim</h3>
+                    <p class="realm-desc">The primordial realm of fire and ash, home to Surtr.</p>
+                </div>
+            </div>
+
+            <!-- 7. Niflheim -->
+            <div class="realm-card" onclick="window.location.href='realms/niflheim.html'">
+                <div class="css-bg bg-niflheim"></div>
+                <div class="overlay">
+                    <h3 class="realm-title">Niflheim</h3>
+                    <p class="realm-desc">The frigid realm of mist, ice, and poisonous fog.</p>
+                </div>
+            </div>
+
+            <!-- 8. Helheim -->
+            <div class="realm-card" onclick="window.location.href='realms/helheim.html'">
+                <div class="css-bg bg-helheim"></div>
+                <div class="overlay">
+                    <h3 class="realm-title">Helheim</h3>
+                    <p class="realm-desc">The freezing and desolate realm of the dishonored dead.</p>
+                </div>
+            </div>
+
+            <!-- 9. Svartalfheim -->
+            <div class="realm-card" onclick="window.location.href='realms/svartalfheim.html'">
+                <div class="css-bg bg-svartalfheim"></div>
+                <div class="overlay">
+                    <h3 class="realm-title">Svartalfheim</h3>
+                    <p class="realm-desc">The industrial, subterranean realm of the Dwarves.</p>
                 </div>
             </div>
         </div>
     </main>
+
+    <footer class="site-footer">
+        <h4 class="text-gold">God of War: Realm Compendium</h4>
+        <p style="color: var(--text-muted); margin-top: 10px; font-size: 0.9rem;">Powered by purely vanilla JavaScript and CSS logic. All rights reserved within the Nine Realms.</p>
+        <p style="color: var(--text-muted); margin-top: 10px; font-size: 0.8rem; letter-spacing: 2px;">"DEATH CAN HAVE ME WHEN IT EARNS ME"</p>
+    </footer>
 
     <script src="js/dashboard.js"></script>
 </body>
