@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | The Realms</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="dashboard-header">
+        <h1>Yggdrasil</h1>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <span style="color: var(--text-muted);">Welcome, <strong class="text-gold" id="userDisplay"></strong></span>
+            <button class="btn-secondary" id="logoutBtn">Leave Realms</button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div style="text-align: center;">
+            <h2>Select Your Destination</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Through the World Tree, all places are connected. Where does your journey take you next?</p>
+        </div>
+
+        <div class="realm-grid">
+            <!-- Midgard -->
+            <div class="realm-card" onclick="window.location.href='realms/midgard.html'">
+                <img src="Assets/Images/midgbanner.png" alt="Midgard">
+                <div class="overlay">
+                    <h3 class="realm-title">Midgard</h3>
+                    <p class="realm-desc">The realm of mortals, currently locked in a brutal Fimbulwinter.</p>
+                </div>
+            </div>
+
+            <!-- Alfheim -->
+            <div class="realm-card" onclick="window.location.href='realms/alfheim.html'">
+                <img src="Assets/Images/alfheim_card.png" alt="Alfheim">
+                <div class="overlay">
+                    <h3 class="realm-title">Alfheim</h3>
+                    <p class="realm-desc">The eternal war of Light and Dark Elves over the Light of Alfheim.</p>
+                </div>
+            </div>
+
+            <!-- Vanaheim -->
+            <div class="realm-card" onclick="window.location.href='realms/vanaheim.html'">
+                <img src="Assets/Images/vanaheim_card.png" alt="Vanaheim">
+                <div class="overlay">
+                    <h3 class="realm-title">Vanaheim</h3>
+                    <p class="realm-desc">The lush, chaotic jungle realm of the Vanir Gods.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

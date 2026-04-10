@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>God of War: The Realms | Portal</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .fullscreen-bg {
+            background-image: url('Assets/Images/login_bg.png');
+            background-color: var(--bg-dark); /* Fallback */
+        }
+    </style>
+</head>
+<body>
+    <div class="fullscreen-bg">
+        <div class="glass-panel text-center" id="authBox">
+            <!-- Login Form -->
+            <div id="loginView">
+                <h1>Enter The Realms</h1>
+                <h2>Login</h2>
+                <div id="loginError" class="error-message"></div>
+                
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginUsername">Spartan ID</label>
+                        <input type="text" id="loginUsername" class="form-control" required placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Passcode</label>
+                        <input type="password" id="loginPassword" class="form-control" required placeholder="Secret">
+                    </div>
+                    <button type="submit" class="btn-primary mt-20">Journey Forth</button>
+                </form>
+                
+                <p class="mt-20">New to the realms? <span class="toggle-link" onclick="toggleView()">Forge a Path (Register)</span></p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="registerView" class="hidden">
+                <h1>Forge A Path</h1>
+                <h2>Register</h2>
+                <div id="registerError" class="error-message"></div>
+                <div id="registerSuccess" style="color: var(--gold-accent); margin-top: 10px; display: none;">Registration glorious! You may login.</div>
+                
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="regUsername">Spartan ID</label>
+                        <input type="text" id="regUsername" class="form-control" required placeholder="Choose a name">
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Passcode</label>
+                        <input type="password" id="regPassword" class="form-control" required minlength="4" placeholder="Choose a secret">
+                    </div>
+                    <button type="submit" class="btn-primary mt-20">Pledge</button>
+                </form>
+                
+                <p class="mt-20">Already have a path? <span class="toggle-link" onclick="toggleView()">Enter (Login)</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
