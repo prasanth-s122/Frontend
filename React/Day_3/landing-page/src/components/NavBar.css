@@ -1,0 +1,30 @@
+/* *{
+    box-sizing: border-box;
+    background-color: aliceblue;
+} */
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: bisque;
+  border-radius: 10px;
+}
+
+.logo{
+  width: 50px;
+  border-radius: 10px;
+}
+
+.nav-links a{
+  margin-left: 25px;
+  background-color: bisque;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  
+}
+
+.nav-links a:hover{
+  color: blue;
+}
