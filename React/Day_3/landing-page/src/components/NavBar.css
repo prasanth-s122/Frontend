@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 15px;
   background-color: bisque;
   border-radius: 10px;
 }
@@ -26,5 +26,5 @@
 }
 
 .nav-links a:hover{
-  color: blue;
+  color: red;
 }
