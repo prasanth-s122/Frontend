@@ -1,11 +1,14 @@
 import React from 'react'
+import About from './components/pages/About'
+const Home = ({sending}) => {
 
-const Home = () => {
+  
   return (
    <>
-     <div className='bg-gray-400  flex justify-center'>
-        <p className='text-white font-sans text-4xl text-center p-2 underline bg-black w-28'>Hello</p>
-    </div>
+    
+   <h1>{sending}</h1>
+   <About sending = {sending}/>
+    
    </>
   )
 }
