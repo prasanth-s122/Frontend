@@ -8,6 +8,7 @@ import Render from './components/Render.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    
     <BrowserRouter>
       <App/>
     </BrowserRouter>
