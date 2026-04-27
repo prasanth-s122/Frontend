@@ -1,57 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import Products from './components/Products'
+import Home from './components/Home'
+import { Route, Routes } from 'react-router-dom'
+import Navbar from './components/Navbar'
 
 const App = () => {
-  const [data , setData] = useState([])
-  
-
-  useEffect(()=>{
-
-    const fetchData = async ()=>{
-      const getData = await fetch("https://dummyjson.com/users")
-
-      const actualData = await getData.json()
-
-      setData(actualData.users)
-  }
-
-    fetchData()
-  } , [])
-  
-  
   return (
     <>
-     
-     <table>
+      <Navbar/>
+      <Routes>
 
-          <thead>
+          <Route  path = "/" element = {<Home/>} />
+          <Route  path = "/products" element = {<Products />} />
 
-              <tr>
+      </Routes>
+      <div>
+        
+      </div>
 
-                  <td>S.No</td>
-                  <td>Name</td>
-                  <td>Phone</td>
-
-              </tr>
-
-          </thead>
-
-          <tbody>
-
-              <tr>
-
-                <td>S.no</td>
-                <td>Name</td>
-                <td>Phone</td>
-
-              </tr>
-
-          </tbody>
-
-     </table>
-     
-     {data.map((e)=>(
-        <h3 key = {e.id}>{e.firstName}</h3>
-     )) }
     </>
   )
 }
