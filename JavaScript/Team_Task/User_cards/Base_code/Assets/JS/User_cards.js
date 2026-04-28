@@ -32,7 +32,7 @@ const fetch_users = async () => {
             
 
             let cards = `
-               <div class=" bg-white w-50 h-70 rounded-lg border-2 flex flex-col justify-between items-center shadow-xl shadow-gray-700/80 hover:scale-130 transition duration-700 hover:shadow-red-700/80 hover:cursor- hover:bg-slate-200  ">
+               <div class=" bg-white w-50 h-70 rounded-lg border-2 flex flex-col justify-between items-center shadow-xl shadow-gray-700/80 hover:scale-130 transition duration-700 hover:shadow-red-700/80 hover:cursor-pointer hover:bg-slate-200  ">
                     <img class="rounded-lg " src="${user.image}" alt="user">
                     <h3 class=" text-center">${user.firstName}</h3>
                     <p class=" p-1 text-center">Age : ${user.age}</p>
