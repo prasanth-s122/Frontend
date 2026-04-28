@@ -32,7 +32,7 @@ const Users = () => {
                     <h1 className='uppercase '>{e.firstName} {e.lastName}</h1>
                     <h1 className='uppercase '>Age : {e.age}</h1>
                     <h1 className='uppercase '>Gender : {e.gender}</h1>
-                    <h1 className='uppercase text-red-500'>Blood Group : {e.bloodGroup}</h1>
+                    <h1 className='uppercase text-red-500'> 🩸 : {e.bloodGroup}</h1>
 
                 </div>
            ))}
