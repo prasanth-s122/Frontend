@@ -12,9 +12,10 @@ const Navbar = () => {
             Logo
         </div>
 
-        <div className='p-3'>
+        <div className='p-3 flex gap-3'>
 
             <Link className='bg-blue-300 text-black p-2 rounded-2xl hover:bg-blue-500' to="/">Register</Link>
+            <Link className='bg-blue-300 text-black p-2 rounded-2xl hover:bg-blue-500' to="/login">Login</Link>
 
         </div>
 
