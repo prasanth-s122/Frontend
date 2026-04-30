@@ -34,6 +34,7 @@ const Todolist = () => {
                   <th className=" p-2">TODO</th>
                   <th className=" p-2">STATUS</th>
                   <th className=" p-2">USER ID</th>
+                  <th className=" p-2">EDIT</th>
 
               </tr>
 
@@ -50,6 +51,9 @@ const Todolist = () => {
                     <td className="border border-black p-2 font-semibold">{e.todo}</td>
                     <td className="border border-black p-2 font-semibold "> {e.completed ? <p className='text-green-500'>Completed</p> : <p className='text-red-500'>Not Completed</p>  }</td>
                     <td className="border border-black p-2 font-semibold">{e.userId}</td>
+                    <td className="border border-black p-2 font-semibold">
+                        <button className='bg-blue-400 w-16  rounded-lg p-2 text-center text-white cursor-pointer hover:bg-blue-600'>Edit</button>
+                    </td>
 
                   </tr>
               )) }
