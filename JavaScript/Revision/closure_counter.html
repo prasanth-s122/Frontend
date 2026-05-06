@@ -1,0 +1,27 @@
+<script>
+    let iterations = 10
+
+    const counterFunction = () => {
+        
+        let count = 0
+
+        const counter = () => {
+
+            count++
+            console.log(count);
+            
+            
+        }
+        return counter
+
+    }
+
+    let x = counterFunction()
+
+    for(let i = 0 ; i < iterations; i++){
+
+        x()
+        
+
+    }
+</script>

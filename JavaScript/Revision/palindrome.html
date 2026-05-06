@@ -1,0 +1,32 @@
+<script>
+    let word = "Madam" 
+    let a = word.toUpperCase()
+
+    const palindrome = (string) => {
+
+        let reverseString = ""
+        
+
+        for(let i = string.length-1 ; i >= 0 ; i--){
+
+            reverseString += string[i]
+
+        }
+
+        return reverseString
+
+    }
+
+    let reverseWord = palindrome(a)
+
+    if (a === reverseWord){
+
+        console.log(`${word} is a palindrome`);
+        
+
+    }else{
+
+        console.log(`${word} is a not palindrome`);
+
+    }
+</script>

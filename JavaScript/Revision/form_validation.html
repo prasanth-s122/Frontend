@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class=" h-screen flex justify-center items-center">
+    <div class="flex justify-center items-center border-3 w-130 h-100 rounded-lg border-gray-500 shadow-xl shadow-gray-500 hover:shadow-gray-700">
+        <form id="myform" class="flex flex-col justify-center gap-6">
+            <div class="text-center">
+                <h1 class="font-[cursive] text-2xl">Form Validation</h1>
+            </div>
+            <div class = "flex justify-center items-center flex-col gap-7">
+                <input type="text" placeholder="Enter name" id="name" class="text-center text-lg border p-2 rounded-lg font-[cursive] focus:bg-blue-300 transition duration-500 focus:shadow-lg focus:text-white">
+                <input type="email"  id="email" placeholder="Enter email" class="text-center text-lg border p-2 rounded-lg font-[cursive] focus:bg-blue-300 transition duration-500 focus:shadow-lg focus:text-white">
+                <input type="password" name="" id="password" placeholder="Enter password" class="text-center text-lg border p-2 rounded-lg font-[cursive] focus:bg-blue-300 transition duration-500 focus:shadow-lg focus:text-white">
+                <button type="submit" class=" font-[cursive] bg-blue-300 p-2 w-30 text-center rounded-xl cursor-pointer hover:bg-blue-400 hover:text-white" >VALIDATE</button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script>
+        
+
+        let form = document.getElementById("myform")
+        
+        form.addEventListener("submit" , (e) => {
+            
+            e.preventDefault()
+
+            let name = document.getElementById("name").value
+            let email = document.getElementById("email").value
+            let password = document.getElementById("password").value
+            if(!name || !email || !password){
+                alert("Please fill the form")
+            }else{
+                alert("Form validated")
+
+                form.reset()
+            }
+        })
+
+
+    </script>
+</body>
+</html>

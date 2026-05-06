@@ -1,0 +1,41 @@
+<script>
+    let array = [2 , 1 , 3 , 4 , 5 , 9 , 5 , 2 , 1 , 7 , 111 , 9]
+
+    
+
+    console.log(`Array is... `);
+    console.log(array);
+    
+
+    const duplicate = (a) => {
+
+        let fixedArray = []
+        
+        for(let i = 0 ; i < a.length ; i++){
+            
+            let found = false
+            
+            for(let j = 0 ; j < fixedArray.length ; j++ ){
+                
+                if(a[i] === a[j]){
+                    found = true
+
+                }
+            }
+
+            if(found === false){
+                fixedArray[fixedArray.length] = a[i]
+            }
+        }
+
+        return fixedArray
+
+    }
+
+    let fixedArray = duplicate(array)
+
+    console.log(`Fixed array is... `);
+    console.log(fixedArray);
+    
+    
+</script>

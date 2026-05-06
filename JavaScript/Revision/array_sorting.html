@@ -1,0 +1,25 @@
+<script>
+    let array = [2 , 5 , 2 , 1 , 7 , 111 , 9]
+
+    console.log(`Array is ${array}`);
+
+    const sorting = (a) => {
+
+        for(let i = 0 ; i < a.length ; i++){
+            for(let j = 0 ; j < a.length-1 ; j++ ){
+                
+                if(a[j] > a[j+1]){
+                    let x = a[j]
+                    a[j] = a[j+1]
+                    a[j+1] = x
+                }
+            }
+        }
+
+        return a
+
+    }
+
+    console.log(`Array after Sorting is ${sorting(array)}`);
+    
+</script>
