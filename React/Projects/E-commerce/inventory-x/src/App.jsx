@@ -1,19 +1,34 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import {Routes,Route} from 'react-router-dom'
+
 import Home from './Pages/Home'
+import Register from './Pages/Register'
+import Login from './Pages/Login'
+import Navbar from './Components/Navbar'
+// import Cart from './Pages/Cart'
 
 const App = () => {
+
   return (
-    <BrowserRouter>
+    <>
+      
+      <Navbar/>
+      
       <Routes>
-        <Route path="/" element={<Home />} />
-        {/* Add these as you build them */}
-        {/* <Route path="/cart" element={<Cart />} /> */}
-        {/* <Route path="/login" element={<Login />} /> */}
-        {/* <Route path="/register" element={<Register />} /> */}
-        {/* <Route path="/admin" element={<AdminDashboard />} /> */}
+
+        <Route path='/' element={<Home />} />
+
+        <Route path='/register' element={<Register />} />
+
+        <Route path='/login' element={<Login />} />
+
+        {/* <Route path='/cart' element={<Cart />} /> */}
+
       </Routes>
-    </BrowserRouter>
+
+    </>
+
   )
 }
 
