@@ -1,85 +1,94 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState, useContext } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+import { AppContext } from '../Context/AppContext'
 
 const Login = () => {
-
   const navigate = useNavigate()
+  const { login } = useContext(AppContext)
 
   const [loginData, setLoginData] = useState({
     email: "",
     password: ""
   })
 
-  const inputChange = (e) => {
+  const [message, setMessage] = useState({ type: '', text: '' })
 
+  const inputChange = (e) => {
     setLoginData({
       ...loginData,
       [e.target.name]: e.target.value
     })
-
+    if (message.text) setMessage({ type: '', text: '' })
   }
 
   const handleSubmit = (e) => {
-
     e.preventDefault()
 
-    if (
-      !loginData.email ||
-      !loginData.password
-    ) {
-
-      alert("Fill the form")
-
+    if (!loginData.email || !loginData.password) {
+      setMessage({ type: 'error', text: 'Please enter both email and password' })
       return
     }
 
-    const storedUser = JSON.parse(
-      localStorage.getItem("User Data")
-    )
+    const users = JSON.parse(localStorage.getItem('users')) || []
+    
+    const user = users.find(u => u.email === loginData.email && u.password === loginData.password)
 
-    if (
-      storedUser.email === loginData.email &&
-      storedUser.password === loginData.password
-    ) {
-
-      alert("Login Successful 😊")
-
-      navigate("/")
-
+    if (user) {
+      login(user) // Update global state
+      
+      if (user.role === 'admin') {
+        navigate("/admin")
+      } else {
+        navigate("/")
+      }
     } else {
-
-      alert("Invalid Email or Password")
-
+      setMessage({ type: 'error', text: 'Invalid Email or Password' })
     }
-
   }
 
   return (
+    <div className='min-h-[calc(100vh-72px)] flex justify-center items-center bg-gray-50'>
+      <div className='w-full max-w-md bg-white shadow-xl rounded-2xl p-8'>
+        <form onSubmit={handleSubmit} className='flex flex-col gap-5'>
+          <h1 className='text-center font-bold text-3xl mb-4 text-gray-800'>Login</h1>
 
-    <div className='h-screen flex justify-center items-center bg-gray-100'>
+          {message.text && (
+            <div className={`p-3 rounded-lg text-sm font-bold ${message.type === 'error' ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}`}>
+              {message.text}
+            </div>
+          )}
 
-      <div className='w-150  bg-white shadow-xl flex justify-center items-center rounded-lg '>
+          <input 
+            type="email" 
+            name='email' 
+            value={loginData.email} 
+            onChange={inputChange} 
+            placeholder='Email Address' 
+            className='p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8cb46] transition'
+          />
 
-        <div>
+          <input 
+            type="password" 
+            name='password' 
+            value={loginData.password} 
+            onChange={inputChange} 
+            placeholder='Password' 
+            className='p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8cb46] transition'
+          />
 
-          <form onSubmit={handleSubmit} className='flex flex-col gap-5 p-5 w-100'>
-
-            <h1 className='text-center font-semibold text-2xl mb-3'>Login</h1>
-
-            <input type="email" name='email' value={loginData.email} onChange={inputChange} placeholder='Enter email' className=' p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400'/>
-
-            <input type="password" name='password' value={loginData.password} onChange={inputChange} placeholder='Enter password' className='p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400'/>
-
-            <input type="submit" value="Login" className='p-3 border rounded-lg bg-blue-300 hover:bg-blue-600 hover:text-white transition duration-300 cursor-pointer'/>
-
-          </form>
-
-        </div>
-
+          <button 
+            type="submit" 
+            className='mt-2 p-3 rounded-lg bg-[#f8cb46] font-bold text-gray-800 hover:bg-[#e5bb3d] transition duration-300'
+          >
+            Login
+          </button>
+          
+          <p className="text-center text-gray-600 mt-2">
+            Don't have an account? <Link to="/register" className="text-blue-600 font-semibold">Register</Link>
+          </p>
+        </form>
       </div>
-
     </div>
-
   )
 }
 

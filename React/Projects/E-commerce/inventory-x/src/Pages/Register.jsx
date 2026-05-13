@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const Register = () => {
-
   const navigate = useNavigate()
 
   const [registerData, setRegisterData] = useState({
@@ -13,17 +12,18 @@ const Register = () => {
     age: ""
   })
 
-  const inputChange = (e) => {
+  const [message, setMessage] = useState({ type: '', text: '' })
 
+  const inputChange = (e) => {
     setRegisterData({
       ...registerData,
       [e.target.name]: e.target.value
     })
-
+    // Clear message on type
+    if (message.text) setMessage({ type: '', text: '' })
   }
 
   const handleSubmit = (e) => {
-
     e.preventDefault()
 
     if (
@@ -33,109 +33,108 @@ const Register = () => {
       !registerData.mobile ||
       !registerData.age
     ) {
-
-      alert("Fill the form")
-
+      setMessage({ type: 'error', text: 'Please fill all the fields' })
       return
     }
 
-    localStorage.setItem(
-      "User Data",
-      JSON.stringify(registerData)
-    )
+    const users = JSON.parse(localStorage.getItem('users')) || []
 
-    alert("Successfully Registered 😊")
+    const userExists = users.some(u => u.email === registerData.email)
 
-    setRegisterData({
-      name: "",
-      email: "",
-      password: "",
-      mobile: "",
-      age: ""
-    })
+    if (userExists) {
+      setMessage({ type: 'error', text: 'User with this email already exists!' })
+      return
+    }
 
-    navigate("/login")
+    const newUser = {
+      ...registerData,
+      role: 'user'
+    }
 
+    users.push(newUser)
+    localStorage.setItem('users', JSON.stringify(users))
+
+    setMessage({ type: 'success', text: 'Successfully Registered 😊 Redirecting...' })
+    
+    setTimeout(() => {
+      navigate("/login")
+    }, 1500)
   }
 
   return (
+    <div className='min-h-[calc(100vh-72px)] flex justify-center items-center bg-gray-50'>
+      <div className='w-full max-w-md bg-white shadow-xl rounded-2xl p-8'>
+        <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+          <h1 className='text-center font-bold text-3xl mb-4 text-gray-800'>
+            Create Account
+          </h1>
 
-    <div className='h-screen flex justify-center items-center bg-gray-100'>
+          {message.text && (
+            <div className={`p-3 rounded-lg text-sm font-bold ${message.type === 'error' ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}`}>
+              {message.text}
+            </div>
+          )}
 
-      <div className='w-200 bg-white shadow-xl flex justify-center items-center rounded-lg'>
+          <input
+            type="text"
+            name='name'
+            value={registerData.name}
+            onChange={inputChange}
+            placeholder='Full Name'
+            className='p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8cb46] transition'
+          />
 
-        <div>
+          <input
+            type="email"
+            name='email'
+            value={registerData.email}
+            onChange={inputChange}
+            placeholder='Email Address'
+            className='p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8cb46] transition'
+          />
 
-          <form
-            onSubmit={handleSubmit}
-            className='flex flex-col gap-3 p-5 w-100'
+          <input
+            type="password"
+            name='password'
+            value={registerData.password}
+            onChange={inputChange}
+            placeholder='Password'
+            className='p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8cb46] transition'
+          />
+
+          <input
+            type="tel"
+            name='mobile'
+            value={registerData.mobile}
+            onChange={inputChange}
+            placeholder='Mobile Number'
+            className='p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8cb46] transition'
+          />
+
+          <input
+            type="number"
+            name='age'
+            value={registerData.age}
+            onChange={inputChange}
+            placeholder='Age'
+            min={18}
+            max={150}
+            className='p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8cb46] transition'
+          />
+
+          <button
+            type="submit"
+            className='mt-4 p-3 rounded-lg bg-[#f8cb46] font-bold text-gray-800 hover:bg-[#e5bb3d] transition duration-300'
           >
+            Register
+          </button>
 
-            <h1 className='text-center font-semibold text-2xl mb-3'>
-              Register
-            </h1>
-
-            <input
-              type="text"
-              name='name'
-              value={registerData.name}
-              onChange={inputChange}
-              placeholder='Enter the name'
-              className='p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400'
-            />
-
-            <input
-              type="email"
-              name='email'
-              value={registerData.email}
-              onChange={inputChange}
-              placeholder='Enter email'
-              className='p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400'
-            />
-
-            <input
-              type="password"
-              name='password'
-              value={registerData.password}
-              onChange={inputChange}
-              placeholder='Set password'
-              className='p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400'
-            />
-
-            <input
-              type="tel"
-              name='mobile'
-              value={registerData.mobile}
-              onChange={inputChange}
-              placeholder='Enter Mobile number'
-              className='p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400'
-            />
-
-            <input
-              type="number"
-              name='age'
-              value={registerData.age}
-              onChange={inputChange}
-              placeholder='Enter your Age'
-              min={18}
-              max={150}
-              className='p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400'
-            />
-
-            <input
-              type="submit"
-              value="Register"
-              className='p-3 border rounded-lg bg-blue-300 hover:bg-blue-600 hover:text-white transition duration-300 cursor-pointer'
-            />
-
-          </form>
-
-        </div>
-
+          <p className="text-center text-gray-600 mt-2">
+            Already have an account? <Link to="/login" className="text-blue-600 font-semibold">Login</Link>
+          </p>
+        </form>
       </div>
-
     </div>
-
   )
 }
 
