@@ -15,7 +15,7 @@ const Admin = () => {
     }
 
     const orders = JSON.parse(localStorage.getItem('all_orders')) || []
-    setAllOrders(orders.reverse())
+    setAllOrders([...orders].reverse())
   }, [currentUser, navigate])
 
   const handleStockChange = (productId, newStock) => {
@@ -23,6 +23,24 @@ const Admin = () => {
     if (!isNaN(stock) && stock >= 0) {
       updateProductStock(productId, stock)
     }
+  }
+
+  const handleOrderStatusChange = (orderId, userEmail, newStatus) => {
+    const updatedAllOrders = allOrders.map(o => 
+      o.id === orderId ? { ...o, status: newStatus } : o
+    )
+    setAllOrders(updatedAllOrders)
+    
+    // Save to all_orders (reversing back to original chronological order)
+    localStorage.setItem('all_orders', JSON.stringify([...updatedAllOrders].reverse()))
+
+    // Update specific user's orders
+    const userOrdersKey = `orders_${userEmail}`
+    const userOrders = JSON.parse(localStorage.getItem(userOrdersKey)) || []
+    const updatedUserOrders = userOrders.map(o =>
+      o.id === orderId ? { ...o, status: newStatus } : o
+    )
+    localStorage.setItem(userOrdersKey, JSON.stringify(updatedUserOrders))
   }
 
   if (!currentUser || currentUser.role !== 'admin') return null
@@ -111,6 +129,23 @@ const Admin = () => {
                     <div>
                       <p className='text-xs text-gray-500 uppercase font-bold tracking-wider'>Total</p>
                       <p className='text-sm font-bold text-gray-900'>₹{order.total}</p>
+                    </div>
+                    <div>
+                      <p className='text-xs text-gray-500 uppercase font-bold tracking-wider mb-1'>Status</p>
+                      <select 
+                        value={order.status}
+                        onChange={(e) => handleOrderStatusChange(order.id, order.userEmail, e.target.value)}
+                        className={`text-xs font-bold px-2 py-1 rounded outline-none border cursor-pointer ${
+                          order.status === 'Delivered' ? 'bg-green-50 text-green-700 border-green-200' : 
+                          order.status === 'Cancelled' ? 'bg-red-50 text-red-700 border-red-200' : 
+                          'bg-orange-50 text-orange-700 border-orange-200'
+                        }`}
+                      >
+                        <option value="Processing">Processing</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Cancelled">Cancelled</option>
+                      </select>
                     </div>
                   </div>
                   <div className='p-4'>

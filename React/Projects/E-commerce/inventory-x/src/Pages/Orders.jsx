@@ -62,6 +62,13 @@ const Orders = () => {
                   </div>
                 </div>
 
+                {order.deliveryAddress && (
+                  <div className='px-6 py-3 bg-gray-50 border-b border-gray-200 text-sm'>
+                    <p className='text-xs text-gray-500 uppercase font-bold tracking-wider mb-1'>Delivery Address</p>
+                    <p className='text-gray-800 font-medium'>{order.deliveryAddress}</p>
+                  </div>
+                )}
+
                 <div className='p-6'>
                   <ul className='divide-y divide-gray-100'>
                     {order.items.map((item) => (

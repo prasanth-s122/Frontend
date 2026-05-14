@@ -3,10 +3,18 @@ import ProductCard from '../Components/ProductCard'
 import { AppContext } from '../Context/AppContext'
 
 const Home = () => {
-  const { products, loading } = useContext(AppContext)
+  const { products, loading, searchQuery, selectedCategory } = useContext(AppContext)
 
-  // Group products by category
-  const categories = products.reduce((acc, product) => {
+  // Filter products
+  const filteredProducts = products.filter(product => {
+    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          product.category.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  // Group filtered products by category
+  const categories = filteredProducts.reduce((acc, product) => {
     if (!acc[product.category]) {
       acc[product.category] = []
     }
@@ -45,9 +53,9 @@ const Home = () => {
                 </h2>
               </div>
 
-              <div className='flex gap-6 overflow-x-auto pb-4 snap-x hide-scrollbar'>
+              <div className='flex flex-wrap gap-6 pb-4 justify-center sm:justify-start'>
                 {categories[category].map((product) => (
-                  <div key={product.id} className='snap-start'>
+                  <div key={product.id}>
                     <ProductCard product={product} />
                   </div>
                 ))}

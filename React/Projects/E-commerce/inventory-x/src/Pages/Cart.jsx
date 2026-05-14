@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../Context/AppContext'
 
 const Cart = () => {
-  const { cart, removeFromCart, clearCart, updateProductStock, currentUser } = useContext(AppContext)
+  const { cart, removeFromCart, clearCart, updateProductStock, currentUser, products, addToCart, decreaseQuantity } = useContext(AppContext)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -20,36 +20,23 @@ const Cart = () => {
       return
     }
 
-    // Reduce stock
+    // Validate stock against current products in AppContext
+    // This handles the case where admin updated stock while item was in cart
+    const outOfStockItems = [];
     cart.forEach(item => {
-      const newStock = item.stock - item.quantity
-      updateProductStock(item.id, newStock)
-    })
+      const currentProduct = products.find(p => p.id === item.id);
+      if (currentProduct && item.quantity > currentProduct.stock) {
+        outOfStockItems.push(`${item.name} (Max available: ${currentProduct.stock})`);
+      }
+    });
 
-    // Save to Orders
-    const orders = JSON.parse(localStorage.getItem(`orders_${currentUser.email}`)) || []
-    
-    const newOrder = {
-      id: Date.now(),
-      date: new Date().toLocaleString(),
-      items: cart,
-      total: totalAmount,
-      status: 'Processing'
+    if (outOfStockItems.length > 0) {
+      alert(`Cannot checkout! The following items exceed available stock:\n\n${outOfStockItems.join('\n')}\n\nPlease adjust your cart.`);
+      return;
     }
 
-    orders.push(newOrder)
-    localStorage.setItem(`orders_${currentUser.email}`, JSON.stringify(orders))
-
-    // Save to All Orders (for admin)
-    const allOrders = JSON.parse(localStorage.getItem('all_orders')) || []
-    allOrders.push({ ...newOrder, userEmail: currentUser.email, userName: currentUser.name })
-    localStorage.setItem('all_orders', JSON.stringify(allOrders))
-
-    // Clear cart
-    clearCart()
-
-    alert("Order Placed Successfully! 🎉")
-    navigate('/orders')
+    // Proceed to checkout page
+    navigate('/checkout')
   }
 
   if (cart.length === 0) {
@@ -82,7 +69,23 @@ const Cart = () => {
                   </div>
                   <div>
                     <h2 className='text-lg font-bold text-gray-800'>{item.name}</h2>
-                    <p className='text-gray-500 text-sm'>₹{item.price} x {item.quantity}</p>
+                    <p className='text-gray-500 text-sm'>₹{item.price} each</p>
+                    
+                    <div className='flex items-center gap-3 mt-2'>
+                      <button 
+                        onClick={() => decreaseQuantity(item.id)}
+                        className='w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full font-bold text-gray-600 transition'
+                      >
+                        -
+                      </button>
+                      <span className='font-bold text-gray-800 w-4 text-center'>{item.quantity}</span>
+                      <button 
+                        onClick={() => addToCart(item)}
+                        className='w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full font-bold text-gray-600 transition'
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                 </div>
                 <div className='flex items-center gap-8'>

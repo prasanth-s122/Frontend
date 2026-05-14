@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 export const AppContext = createContext();
 
@@ -7,6 +8,8 @@ export const AppProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   // Initialize data on load
   useEffect(() => {
@@ -36,25 +39,40 @@ export const AppProvider = ({ children }) => {
       setCart(storedCart);
     }
 
-    // 3. Fetch products from DummyJSON
+    // 3. Fetch products from Multiple dummy APIs
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://dummyjson.com/products?limit=24');
-        const data = await response.json();
+        const [dummyRes, fakeRes] = await Promise.all([
+          fetch('https://dummyjson.com/products?limit=100'),
+          fetch('https://fakestoreapi.com/products')
+        ]);
+        
+        const dummyData = await dummyRes.json();
+        const fakeData = await fakeRes.json();
         
         const overrides = JSON.parse(localStorage.getItem('product_stock_overrides')) || {};
         
-        const formattedProducts = data.products.map(p => ({
-          id: p.id,
+        const formattedDummyProducts = dummyData.products.map(p => ({
+          id: `dummy_${p.id}`,
           name: p.title,
           price: Math.round(p.price * 80), // Convert to roughly INR
-          stock: overrides[p.id] !== undefined ? overrides[p.id] : p.stock,
+          stock: overrides[`dummy_${p.id}`] !== undefined ? overrides[`dummy_${p.id}`] : p.stock,
           category: p.category,
           image: p.thumbnail,
           description: p.description
         }));
+
+        const formattedFakeProducts = fakeData.map(p => ({
+          id: `fake_${p.id}`,
+          name: p.title,
+          price: Math.round(p.price * 80), // Convert to roughly INR
+          stock: overrides[`fake_${p.id}`] !== undefined ? overrides[`fake_${p.id}`] : 20, // Default stock to 20
+          category: p.category,
+          image: p.image,
+          description: p.description
+        }));
         
-        setProducts(formattedProducts);
+        setProducts([...formattedDummyProducts, ...formattedFakeProducts]);
         setLoading(false);
       } catch (error) {
         console.error("Failed to fetch products:", error);
@@ -85,10 +103,18 @@ export const AppProvider = ({ children }) => {
     let newCart;
 
     if (existingItem) {
+      if (existingItem.quantity >= product.stock) {
+        toast.error("Cannot add more than available stock!");
+        return false;
+      }
       newCart = cart.map((item) =>
         item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
       );
     } else {
+      if (product.stock <= 0) {
+        toast.error("Product is out of stock!");
+        return false;
+      }
       newCart = [...cart, { ...product, quantity: 1 }];
     }
 
@@ -100,6 +126,23 @@ export const AppProvider = ({ children }) => {
   const removeFromCart = (productId) => {
     if (!currentUser) return;
     const newCart = cart.filter((item) => item.id !== productId);
+    setCart(newCart);
+    localStorage.setItem(`cart_${currentUser.email}`, JSON.stringify(newCart));
+  };
+
+  const decreaseQuantity = (productId) => {
+    if (!currentUser) return;
+    const existingItem = cart.find((item) => item.id === productId);
+    if (!existingItem) return;
+
+    let newCart;
+    if (existingItem.quantity === 1) {
+      newCart = cart.filter((item) => item.id !== productId);
+    } else {
+      newCart = cart.map((item) =>
+        item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
+      );
+    }
     setCart(newCart);
     localStorage.setItem(`cart_${currentUser.email}`, JSON.stringify(newCart));
   };
@@ -124,6 +167,20 @@ export const AppProvider = ({ children }) => {
     localStorage.setItem('product_stock_overrides', JSON.stringify(overrides));
   };
 
+  const updateUserAddress = (newAddress) => {
+    if (!currentUser) return;
+
+    const updatedUser = { ...currentUser, address: newAddress };
+    setCurrentUser(updatedUser);
+    localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+
+    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+    const updatedUsers = storedUsers.map(u => 
+      u.email === updatedUser.email ? updatedUser : u
+    );
+    localStorage.setItem('users', JSON.stringify(updatedUsers));
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -131,12 +188,18 @@ export const AppProvider = ({ children }) => {
         products,
         cart,
         loading,
+        searchQuery,
+        setSearchQuery,
+        selectedCategory,
+        setSelectedCategory,
         login,
         logout,
         addToCart,
         removeFromCart,
+        decreaseQuantity,
         clearCart,
         updateProductStock,
+        updateUserAddress,
       }}
     >
       {children}

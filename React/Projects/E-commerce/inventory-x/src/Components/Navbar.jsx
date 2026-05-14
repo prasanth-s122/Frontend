@@ -3,8 +3,10 @@ import { Link, useNavigate } from 'react-router-dom'
 import { AppContext } from '../Context/AppContext'
 
 const Navbar = () => {
-  const { currentUser, logout, cart } = useContext(AppContext)
+  const { currentUser, logout, cart, searchQuery, setSearchQuery, selectedCategory, setSelectedCategory, products } = useContext(AppContext)
   const navigate = useNavigate()
+
+  const categories = ['All', ...new Set(products.map(p => p.category))];
 
   const handleLogout = () => {
     logout()
@@ -23,6 +25,26 @@ const Navbar = () => {
           </h1>
         </Link>
 
+        {/* Search & Filter */}
+        <div className='flex items-center flex-1 max-w-xl mx-8 gap-2'>
+          <select 
+            value={selectedCategory} 
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className='bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-[#f8cb46] focus:border-[#f8cb46] block p-2.5 font-bold uppercase tracking-wider'
+          >
+            {categories.map(cat => (
+              <option key={cat} value={cat}>{cat.replace('-', ' ')}</option>
+            ))}
+          </select>
+          <input 
+            type="text" 
+            placeholder="Search products..." 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-[#f8cb46] focus:border-[#f8cb46] block w-full p-2.5 outline-none font-medium transition"
+          />
+        </div>
+
         <div className='flex items-center gap-6 font-bold text-gray-600'>
           {!currentUser ? (
             <>
@@ -38,10 +60,11 @@ const Navbar = () => {
             <>
               <span className='text-gray-400 font-medium hidden sm:block'>Hi, {currentUser.name}</span>
               <Link to='/orders' className='hover:text-gray-900 transition'>Orders</Link>
-              <Link to='/cart' className='px-4 py-2 bg-[#1c9236] text-white rounded-xl hover:bg-[#167a2a] transition flex items-center gap-2 shadow-md shadow-green-200'>
-                Cart
+              <Link to='/cart' className='relative px-5 py-2.5 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'>
+                <span className='text-lg'>🛒</span>
+                <span className='font-bold hidden sm:inline'>Cart</span>
                 {cartItemCount > 0 && (
-                  <span className='bg-white text-[#1c9236] text-xs font-black px-2 py-0.5 rounded-full'>
+                  <span className='absolute -top-2 -right-2 bg-[#f8cb46] text-gray-900 text-xs font-black h-6 w-6 flex items-center justify-center rounded-full border-2 border-white shadow-sm'>
                     {cartItemCount}
                   </span>
                 )}
