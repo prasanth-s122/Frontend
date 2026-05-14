@@ -20,3 +20,5 @@ CREATE TABLE employees(
     department VARCHAR(30) NOT NULL
 
 );
+
+ALTER TABLE employees ADD COLUMN salary INT ;
