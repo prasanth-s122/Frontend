@@ -26,7 +26,7 @@ INSERT INTO orders (product_name,customer_id,amount) VALUES ("Eggs",1,60),("Lapt
 
 --
 
-SELECT  customer_name , COUNT(orders_id) AS TOTAL_ORDERS FROM 
+SELECT  customer_name , COUNT(orders_id) AS TOTAL_ORDERS FROM  
 
 
 

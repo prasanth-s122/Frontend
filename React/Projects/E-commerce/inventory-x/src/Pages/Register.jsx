@@ -62,10 +62,11 @@ const Register = () => {
   }
 
   return (
-    <div className='min-h-[calc(100vh-72px)] flex justify-center items-center bg-gray-50'>
-      <div className='w-full max-w-md bg-white shadow-xl rounded-2xl p-8'>
+    <div className='min-h-[calc(100vh-72px)] flex justify-center items-center bg-transparent relative'>
+      <div className='absolute inset-0 bg-[url("https://www.transparenttextures.com/patterns/stardust.png")] opacity-5 pointer-events-none'></div>
+      <div className='w-full max-w-md bg-slate-800 shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-slate-700 rounded-2xl p-8 relative z-10'>
         <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-          <h1 className='text-center font-bold text-3xl mb-4 text-gray-800'>
+          <h1 className='text-center font-black text-3xl mb-4 text-slate-100 uppercase tracking-wider'>
             Create Account
           </h1>
 
@@ -81,7 +82,7 @@ const Register = () => {
             value={registerData.name}
             onChange={inputChange}
             placeholder='Full Name'
-            className='p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8cb46] transition'
+            className='p-3 bg-slate-900 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition'
           />
 
           <input
@@ -90,7 +91,7 @@ const Register = () => {
             value={registerData.email}
             onChange={inputChange}
             placeholder='Email Address'
-            className='p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8cb46] transition'
+            className='p-3 bg-slate-900 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition'
           />
 
           <input
@@ -99,7 +100,7 @@ const Register = () => {
             value={registerData.password}
             onChange={inputChange}
             placeholder='Password'
-            className='p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8cb46] transition'
+            className='p-3 bg-slate-900 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition'
           />
 
           <input
@@ -108,7 +109,7 @@ const Register = () => {
             value={registerData.mobile}
             onChange={inputChange}
             placeholder='Mobile Number'
-            className='p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8cb46] transition'
+            className='p-3 bg-slate-900 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition'
           />
 
           <input
@@ -119,18 +120,18 @@ const Register = () => {
             placeholder='Age'
             min={18}
             max={150}
-            className='p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8cb46] transition'
+            className='p-3 bg-slate-900 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition'
           />
 
           <button
             type="submit"
-            className='mt-4 p-3 rounded-lg bg-[#f8cb46] font-bold text-gray-800 hover:bg-[#e5bb3d] transition duration-300'
+            className='mt-4 p-3 rounded-lg bg-red-600 font-bold text-white hover:bg-red-700 shadow-md shadow-red-900/50 hover:-translate-y-0.5 transition duration-300'
           >
             Register
           </button>
 
-          <p className="text-center text-gray-600 mt-2">
-            Already have an account? <Link to="/login" className="text-blue-600 font-semibold">Login</Link>
+          <p className="text-center text-slate-400 mt-2">
+            Already have an account? <Link to="/login" className="text-cyan-400 hover:text-cyan-300 font-semibold transition">Login</Link>
           </p>
         </form>
       </div>

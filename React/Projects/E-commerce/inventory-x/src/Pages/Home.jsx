@@ -23,15 +23,15 @@ const Home = () => {
   }, {})
 
   return (
-    <div className='min-h-screen bg-[#f4f6f9]'>
+    <div className='min-h-screen bg-transparent'>
       {/* Hero Section */}
-      <div className='bg-gradient-to-r from-yellow-300 via-[#f8cb46] to-yellow-400 py-12 px-8 mb-8 shadow-sm'>
-        <div className='max-w-7xl mx-auto'>
-          <h1 className='text-5xl font-black text-gray-900 mb-4 tracking-tighter'>
-            Groceries delivered in <span className='text-white drop-shadow-md'>minutes.</span>
+      <div className='bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700 py-20 px-8 mb-10 shadow-2xl relative overflow-hidden'>
+        <div className='max-w-7xl mx-auto text-center md:text-left relative z-10'>
+          <h1 className='text-5xl md:text-6xl font-black text-slate-100 mb-6 tracking-tighter leading-tight'>
+            The realms delivered in <span className='text-red-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]'>minutes.</span>
           </h1>
-          <p className='text-xl font-bold text-gray-800 max-w-lg'>
-            Get everything you need, exactly when you need it. Fast, fresh, and at your doorstep.
+          <p className='text-xl md:text-2xl font-medium text-slate-300 max-w-2xl'>
+            Get premium products, everyday essentials, and exactly what you need to survive Fimbulwinter.
           </p>
         </div>
       </div>
@@ -40,7 +40,7 @@ const Home = () => {
       <div className='max-w-7xl mx-auto px-8 pb-20'>
         {loading ? (
           <div className='flex justify-center items-center py-20'>
-            <div className='animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-[#f8cb46]'></div>
+            <div className='animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-red-600 shadow-[0_0_15px_rgba(239,68,68,0.5)]'></div>
           </div>
         ) : Object.keys(categories).length === 0 ? (
           <div className='text-center py-20 text-gray-500 font-bold'>No products found.</div>
@@ -48,14 +48,14 @@ const Home = () => {
           Object.keys(categories).map(category => (
             <div key={category} className='mb-12'>
               <div className='flex items-center justify-between mb-6'>
-                <h2 className='text-2xl font-black text-gray-800 capitalize tracking-tight'>
+                <h2 className='text-2xl font-black text-slate-100 capitalize tracking-tight'>
                   {category.replace('-', ' ')} Collection
                 </h2>
               </div>
 
-              <div className='flex flex-wrap gap-6 pb-4 justify-center sm:justify-start'>
+              <div className='grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6 pb-4'>
                 {categories[category].map((product) => (
-                  <div key={product.id}>
+                  <div key={product.id} className='flex'>
                     <ProductCard product={product} />
                   </div>
                 ))}
@@ -66,7 +66,7 @@ const Home = () => {
       </div>
 
       {/* Footer minimal */}
-      <footer className="bg-white border-t border-gray-200 py-8 text-center text-gray-500 font-medium">
+      <footer className="bg-slate-900 border-t border-slate-800 py-8 text-center text-slate-500 font-medium">
         <p>© 2026 InventoryX - Built with React & Vite</p>
       </footer>
     </div>

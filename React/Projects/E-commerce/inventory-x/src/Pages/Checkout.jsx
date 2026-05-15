@@ -22,7 +22,7 @@ const Checkout = () => {
 
   const handlePlaceOrder = () => {
     if (!address.trim()) {
-      alert("Please provide a delivery address.")
+      toast.error("Please provide a delivery address.")
       return
     }
 
@@ -36,7 +36,7 @@ const Checkout = () => {
     });
 
     if (outOfStockItems.length > 0) {
-      alert(`Cannot checkout! The following items exceed available stock:\n\n${outOfStockItems.join('\n')}\n\nPlease adjust your cart.`);
+      toast.error(`Cannot checkout! The following items exceed available stock:\n\n${outOfStockItems.join('\n')}\n\nPlease adjust your cart.`);
       navigate('/cart')
       return;
     }
@@ -83,15 +83,16 @@ const Checkout = () => {
   if (!currentUser || cart.length === 0) return null;
 
   return (
-    <div className='min-h-[calc(100vh-72px)] bg-gray-50 p-8'>
-      <div className='max-w-4xl mx-auto'>
-        <h1 className='text-3xl font-bold text-gray-800 mb-8'>Checkout</h1>
+    <div className='min-h-[calc(100vh-72px)] bg-transparent p-8 relative'>
+      <div className='absolute inset-0 bg-[url("https://www.transparenttextures.com/patterns/stardust.png")] opacity-5 pointer-events-none'></div>
+      <div className='max-w-4xl mx-auto relative z-10'>
+        <h1 className='text-3xl font-black text-slate-100 uppercase tracking-wider mb-8'>Checkout</h1>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
           
           {/* Address Section */}
-          <div className='bg-white rounded-2xl shadow-sm p-6'>
-            <h2 className='text-xl font-bold text-gray-800 mb-4'>Delivery Address</h2>
+          <div className='bg-slate-800 rounded-2xl shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-slate-700 p-6'>
+            <h2 className='text-xl font-bold text-slate-100 mb-4'>Delivery Address</h2>
             
             {isEditingAddress ? (
               <div className='space-y-4'>
@@ -100,7 +101,7 @@ const Checkout = () => {
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   placeholder="Enter your full delivery address..."
-                  className='w-full p-3 border border-gray-200 rounded-lg focus:ring-[#f8cb46] focus:border-[#f8cb46] outline-none transition'
+                  className='w-full p-3 bg-slate-900 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 focus:ring-red-500 focus:border-red-500 outline-none transition'
                 ></textarea>
                 <button 
                   onClick={() => {
@@ -108,22 +109,22 @@ const Checkout = () => {
                       setIsEditingAddress(false);
                       updateUserAddress(address);
                     } else {
-                      alert("Address cannot be empty");
+                      toast.error("Address cannot be empty");
                     }
                   }}
-                  className='px-6 py-2 bg-[#1c9236] text-white font-bold rounded-lg hover:bg-[#167a2a] transition'
+                  className='px-6 py-2 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 shadow-md shadow-red-900/50 hover:-translate-y-0.5 transition'
                 >
                   Save Address
                 </button>
               </div>
             ) : (
               <div className='space-y-4'>
-                <p className='text-gray-600 bg-gray-50 p-4 rounded-lg whitespace-pre-wrap border border-gray-100'>
+                <p className='text-slate-300 bg-slate-900 p-4 rounded-lg whitespace-pre-wrap border border-slate-700'>
                   {address}
                 </p>
                 <button 
                   onClick={() => setIsEditingAddress(true)}
-                  className='text-sm text-[#f8cb46] hover:text-[#e5bb3d] font-bold transition'
+                  className='text-sm text-cyan-400 hover:text-cyan-300 font-bold transition'
                 >
                   Edit Address
                 </button>
@@ -132,22 +133,22 @@ const Checkout = () => {
           </div>
 
           {/* Order Summary */}
-          <div className='bg-white rounded-2xl shadow-sm p-6 flex flex-col'>
-            <h2 className='text-xl font-bold text-gray-800 mb-4'>Order Summary</h2>
+          <div className='bg-slate-800 rounded-2xl shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-slate-700 p-6 flex flex-col'>
+            <h2 className='text-xl font-bold text-slate-100 mb-4'>Order Summary</h2>
             
             <div className='flex-1 overflow-y-auto max-h-64 mb-4 space-y-4 pr-2'>
               {cart.map((item) => (
                 <div key={item.id} className='flex justify-between text-sm'>
-                  <span className='text-gray-600'>{item.quantity}x {item.name}</span>
-                  <span className='font-bold text-gray-900'>₹{item.price * item.quantity}</span>
+                  <span className='text-slate-400'>{item.quantity}x {item.name}</span>
+                  <span className='font-bold text-cyan-400'>₹{item.price * item.quantity}</span>
                 </div>
               ))}
             </div>
 
-            <div className='border-t border-gray-100 pt-4 mb-6'>
+            <div className='border-t border-slate-700 pt-4 mb-6'>
               <div className='flex justify-between items-center'>
-                <span className='text-gray-600 font-bold'>Total Amount</span>
-                <span className='text-2xl font-black text-gray-900'>₹{totalAmount}</span>
+                <span className='text-slate-400 font-bold'>Total Amount</span>
+                <span className='text-2xl font-black text-cyan-400 drop-shadow-[0_0_5px_rgba(34,211,238,0.3)]'>₹{totalAmount}</span>
               </div>
             </div>
 
@@ -156,8 +157,8 @@ const Checkout = () => {
               disabled={isEditingAddress || !address.trim()}
               className={`w-full py-4 rounded-xl font-bold transition shadow-md ${
                 isEditingAddress || !address.trim() 
-                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed' 
-                  : 'bg-[#f8cb46] text-gray-900 hover:bg-[#e5bb3d] hover:-translate-y-0.5'
+                  ? 'bg-slate-700 text-slate-500 cursor-not-allowed' 
+                  : 'bg-red-600 text-white hover:bg-red-700 shadow-red-900/50 hover:shadow-red-900/80 hover:-translate-y-0.5'
               }`}
             >
               Confirm and Pay ₹{totalAmount}

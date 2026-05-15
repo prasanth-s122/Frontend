@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
 
   const handleCart = () => {
     if (!currentUser) {
-      alert("Please login to add items to cart")
+      toast.error("Please login to add items to cart")
       navigate("/login")
       return
     }
@@ -31,7 +31,7 @@ const ProductCard = ({ product }) => {
   }
 
   return (
-    <div className='bg-white border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition duration-300 w-64 rounded-2xl p-4 flex flex-col shadow-sm relative'>
+    <div className='bg-slate-800 border border-slate-700 hover:shadow-cyan-500/20 hover:border-cyan-500/50 hover:-translate-y-1 transition duration-300 w-full h-full rounded-2xl p-4 flex flex-col shadow-sm relative group'>
       {availableStock > 0 ? (
         <span className={`absolute top-2 left-2 text-xs font-bold px-2 py-1 rounded-full z-10 ${
           availableStock <= 5 ? 'bg-orange-100 text-orange-600' : 'bg-green-100 text-green-700'
@@ -44,7 +44,7 @@ const ProductCard = ({ product }) => {
         </span>
       )}
 
-      <div className="bg-gray-50 rounded-xl p-2 mb-4 h-40 flex justify-center items-center">
+      <div className="bg-slate-100 rounded-xl p-2 mb-4 h-40 flex justify-center items-center border-2 border-transparent group-hover:border-cyan-500/30 transition-colors">
         <img
           className='max-h-full max-w-full object-contain'
           src={product.image}
@@ -54,17 +54,17 @@ const ProductCard = ({ product }) => {
 
       <div className="flex-grow flex flex-col justify-between">
         <div>
-          <h1 className='text-sm text-gray-500 font-medium uppercase tracking-wider mb-1'>
+          <h1 className='text-sm text-slate-400 font-medium uppercase tracking-wider mb-1'>
             {product.category}
           </h1>
-          <h1 className='text-md font-semibold text-gray-800 leading-tight mb-2'>
+          <h1 className='text-md font-semibold text-slate-100 leading-tight mb-2'>
             {product.name}
           </h1>
         </div>
 
         <div>
           <div className="flex items-center justify-between mb-4">
-            <h1 className='text-xl font-bold text-gray-900'>
+            <h1 className='text-xl font-bold text-cyan-400 drop-shadow-[0_0_5px_rgba(34,211,238,0.3)]'>
               ₹{product.price}
             </h1>
           </div>
@@ -74,10 +74,10 @@ const ProductCard = ({ product }) => {
             disabled={isMaxReached}
             className={`w-full py-2.5 rounded-xl font-bold transition-all duration-300 ${
               product.stock === 0
-                ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                ? 'bg-slate-700 text-slate-500 cursor-not-allowed'
                 : isMaxReached 
-                  ? 'bg-orange-200 text-orange-600 cursor-not-allowed'
-                  : 'bg-[#f8cb46] text-gray-800 hover:bg-[#e5bb3d] shadow-sm'
+                  ? 'bg-slate-700 text-red-400 cursor-not-allowed'
+                  : 'bg-red-600 text-white hover:bg-red-700 shadow-md shadow-red-900/50 hover:shadow-red-900/80 hover:-translate-y-0.5 border border-red-500/50'
             }`}
           >
             {product.stock === 0 ? 'Out of Stock' : isMaxReached ? 'Max Limit Reached' : 'Add to Cart'}

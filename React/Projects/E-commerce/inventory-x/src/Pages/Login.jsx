@@ -47,10 +47,11 @@ const Login = () => {
   }
 
   return (
-    <div className='min-h-[calc(100vh-72px)] flex justify-center items-center bg-gray-50'>
-      <div className='w-full max-w-md bg-white shadow-xl rounded-2xl p-8'>
+    <div className='min-h-[calc(100vh-72px)] flex justify-center items-center bg-transparent relative'>
+      <div className='absolute inset-0 bg-[url("https://www.transparenttextures.com/patterns/stardust.png")] opacity-5 pointer-events-none'></div>
+      <div className='w-full max-w-md bg-slate-800 shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-slate-700 rounded-2xl p-8 relative z-10'>
         <form onSubmit={handleSubmit} className='flex flex-col gap-5'>
-          <h1 className='text-center font-bold text-3xl mb-4 text-gray-800'>Login</h1>
+          <h1 className='text-center font-black text-3xl mb-4 text-slate-100 uppercase tracking-wider'>Login</h1>
 
           {message.text && (
             <div className={`p-3 rounded-lg text-sm font-bold ${message.type === 'error' ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}`}>
@@ -64,7 +65,7 @@ const Login = () => {
             value={loginData.email} 
             onChange={inputChange} 
             placeholder='Email Address' 
-            className='p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8cb46] transition'
+            className='p-3 bg-slate-900 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition'
           />
 
           <input 
@@ -73,18 +74,18 @@ const Login = () => {
             value={loginData.password} 
             onChange={inputChange} 
             placeholder='Password' 
-            className='p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8cb46] transition'
+            className='p-3 bg-slate-900 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition'
           />
 
           <button 
             type="submit" 
-            className='mt-2 p-3 rounded-lg bg-[#f8cb46] font-bold text-gray-800 hover:bg-[#e5bb3d] transition duration-300'
+            className='mt-2 p-3 rounded-lg bg-red-600 font-bold text-white hover:bg-red-700 shadow-md shadow-red-900/50 hover:-translate-y-0.5 transition duration-300'
           >
             Login
           </button>
           
-          <p className="text-center text-gray-600 mt-2">
-            Don't have an account? <Link to="/register" className="text-blue-600 font-semibold">Register</Link>
+          <p className="text-center text-slate-400 mt-2">
+            Don't have an account? <Link to="/register" className="text-cyan-400 hover:text-cyan-300 font-semibold transition">Register</Link>
           </p>
         </form>
       </div>
