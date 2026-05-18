@@ -5,7 +5,7 @@ const App = () => {
   const data = "Narayana"
   return (
     <>
-      <Home  />
+      <Home sending={data} />
     </>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const About = ({sending}) => {
-    const a = "Python"
+    const a = "AI"
   return (
     <div>{sending}{a}</div>
   )
