@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths</title>
+</head>
+<body>
+    
+    <input id="first"  type="number" placeholder="Enter the first number">
+    <input id="second" type="number" placeholder="Enter the second number">
+    <button id="btn">Click</button>
+    <p id="sum"></p>
+    <p id="diff"></p>
+    <p id="product"></p>
+    <p id="division"></p>
+
+
+    <script>
+        
+        const btn = document.getElementById("btn")
+
+        btn.addEventListener("click" , ()=>{
+            const first = Number(document.getElementById("first").value)
+            const second = Number(document.getElementById("second").value)
+            document.getElementById("sum").innerHTML=first+second
+            document.getElementById("diff").innerHTML=first-second
+            document.getElementById("product").innerHTML=first*second
+            document.getElementById("division").innerHTML=first/second
+        })
+
+    </script>
+</body>
+</html>

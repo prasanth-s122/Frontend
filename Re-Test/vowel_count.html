@@ -1,0 +1,22 @@
+<script>
+    let string = 'Javascript'
+
+    const count = (str) => {
+        str = str.toLowerCase()
+        let v_count = 0
+        let c_count = 0
+        for(let i = 0 ; i < str.length ; i++){
+
+            if(str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u'){
+                v_count++
+            }else{
+                c_count++
+            }
+        }
+        console.log(`Vowel count is ${v_count}`);
+        console.log(`Consonant count is ${c_count}`);
+        
+    }
+
+    count(string)
+</script>
